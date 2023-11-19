@@ -1,0 +1,39 @@
+.tp-catalog {
+    width: 115%;
+    height: 340px;
+    background-color: white;
+    margin-left: 0;
+    margin-right: 10px;
+    margin-top: 30px;
+    display: flex;
+    border-radius: 7px;
+}
+
+.tp-img{
+    width: 120px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 25px;
+}
+
+.tp-info {
+    margin-top: 200px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.tp-rating{
+    margin-top: 10px;
+    margin-bottom: 0PX;
+    display: flex;
+    text-align: center;
+    font-size: 16px;
+    color: #DA5E42;
+}
+
+.tp-rating-star{
+    padding-right: 5px;
+}
+  

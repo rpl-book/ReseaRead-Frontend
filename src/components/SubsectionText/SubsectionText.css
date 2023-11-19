@@ -1,0 +1,16 @@
+.sub-section-text{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 46px;
+    color: black;
+}
+
+.line{
+    width: 100px;
+    height: 2px;
+    position: absolute;
+    background-color: #000000;
+}
