@@ -39,7 +39,7 @@ const ContinueReading = () => {
             />
           </div>
         </div>
-        <div class="flex justify-center items-center mt-20">
+        <div class="flex justify-center items-center mt-20 mb-20">
           <Button buttonName="See More" size="20" color="white" targetPage="/" />
         </div>
 
