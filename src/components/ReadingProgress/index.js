@@ -1,5 +1,5 @@
 import "./ReadingProgress.css";
-import { PPage } from "../PText/PText";
+import { PPage } from "../PText";
 
 const ReadingProgress = ({currentPage, totalPage}) => {
   return (

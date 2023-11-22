@@ -1,5 +1,5 @@
 import NavigationBar from "@/components/NavigationBar";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer";
 import "./globals.css";
 import { Nunito } from "next/font/google";
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 import "./FeaturedBook.css"; 
-import Button from "../Button/Button";
+import Button from "../Button";
 
 
 const FeaturedBook = ({ image, title, author, desc }) => {

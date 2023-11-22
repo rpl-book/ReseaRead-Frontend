@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Button from "../Button/Button";
-import SubsectionText from "../SubsectionText/SubsectionText";
-import { PDesc } from "../PText/PText";
+import Button from "../Button";
+import SubsectionText from "../SubsectionText";
+import { PDesc } from "../PText";
 import "./NewRelease.css";
 
 const NewRelease = ({ desc }) => {

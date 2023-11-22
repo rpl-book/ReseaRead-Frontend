@@ -1,7 +1,6 @@
-import Image from "next/image";
 import "./ConReadingCard.css"; 
-import { PTitle, PAuthor } from "../PText/PText";
-import ReadingProgress from "../ReadingProgress/ReadingProgress";
+import { PTitle, PAuthor } from "../PText";
+import ReadingProgress from "../ReadingProgress";
 
 const ConReadingCard = ({bookTitle, bookAuthor, currentPage, totalPage, bookImg}) => {
   return (

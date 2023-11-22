@@ -1,0 +1,10 @@
+.configure{
+    font-size: 21px;
+  }
+  
+  .configure button:hover, .configure button:focus, .configure button:active{
+    text-decoration: none;
+    color: #DA5E42;
+  
+  }
+  

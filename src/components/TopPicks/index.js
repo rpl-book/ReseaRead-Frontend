@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Button from "../Button/Button";
-import SubsectionText from "../SubsectionText/SubsectionText";
-import TopPicksCard from "../TopPicksCard/TopPicksCard";
+import Button from "../Button";
+import SubsectionText from "../SubsectionText/";
+import TopPicksCard from "../TopPicksCard";
 
 
 const TopPicks = () => {

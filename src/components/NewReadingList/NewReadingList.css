@@ -1,0 +1,19 @@
+.lib-readinglist p{
+    margin-bottom: 7px;
+    padding: 8px;
+}
+  
+  
+.lib-readinglist p:hover, p:focus, p:active{
+    background: #A9B9B9;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 8px;
+    margin-bottom: 7px;
+}
+
+.reading-list{
+  margin: 2px;
+}
+  

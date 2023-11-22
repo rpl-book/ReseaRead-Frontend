@@ -1,7 +1,7 @@
 import FeaturedBook from "@/components/FeaturedBook";
-import ContinueReading from "@/components/ContinueReading/ContinueReading";
-import NewRelease from "@/components/NewRelease/NewRelease";
-import TopPicks from "@/components/TopPicks/TopPicks";
+import ContinueReading from "@/components/ContinueReading/";
+import NewRelease from "@/components/NewRelease/";
+import TopPicks from "@/components/TopPicks/";
 
 
 const Home = () => {

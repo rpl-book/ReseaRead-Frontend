@@ -1,6 +1,6 @@
 import "./TopPicksCard.css";
-import Button from "../Button/Button";
-import { PSTitle, PSAuthor, PPage, PRate } from "../PText/PText";
+import Button from "../Button";
+import { PSTitle, PSAuthor, PPage, PRate } from "../PText";
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 

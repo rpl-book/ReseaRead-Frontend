@@ -1,6 +1,6 @@
-import SubsectionText from "../SubsectionText/SubsectionText";
-import ConReadingCard from "../ConReadingCard/ConReadingCard";
-import Button from "../Button/Button";
+import SubsectionText from "../SubsectionText";
+import ConReadingCard from "../ConReadingCard";
+import Button from "../Button";
 
 const ContinueReading = () => {
   return (
