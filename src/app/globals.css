@@ -14,14 +14,12 @@ body {
   background-color: #f7f6f4;
 }
 
-.featured-book {
-  background-color: #dae9e9;
+main {
+  padding: 0;
 }
 
-.featured-author {
-  color: #0e765b;
+.font{
+  font-weight: 400;
+  line-height: 30px;
 }
 
-.featured-read {
-  background-color: #c9654e;
-}

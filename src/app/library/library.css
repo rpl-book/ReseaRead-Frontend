@@ -1,0 +1,27 @@
+.header-lib{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 46px;
+    padding-left: 260px;
+}
+
+.library-tools {
+    display: flex;
+    gap: 20px; /* Jarak antara ikon */
+    justify-content: flex-end; /* Konten menjadi rata kanan */
+  }
+  
+.library-tools a {
+    text-decoration: none;
+    color: black; /* Warna ikon */
+    font-size: 30px;
+}
+
+.library-tools a:hover, .library-tools a:focus, .library-tools a:active{
+  text-decoration: none;
+  color: #DA5E42;
+
+}
+
+

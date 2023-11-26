@@ -1,0 +1,72 @@
+.p-title {
+    font-size: 18px;
+    font-style: normal;
+    line-height: 140%;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.p-title:hover {
+    text-decoration: underline;
+}
+
+/*------------*/
+
+.p-author {
+    font-size: 18px;
+    font-style: normal;
+    line-height: 140%;
+    margin-bottom: 0;
+    color: #DA5E42;
+}
+
+.p-author:hover {
+    text-decoration: underline;
+    color: #DA5E42;
+}
+
+/*------------*/
+.p-page{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: black;
+}
+
+/*------------*/
+
+.p-desc{
+    font-size: 18px;
+    font-style: normal;
+    line-height: 30px;
+    color: black;
+}
+
+/*-------TOP PICKS-----*/
+
+.ps-title {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 140%;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.ps-title:hover {
+    text-decoration: underline;
+}
+
+
+.ps-author {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 140%;
+    margin-bottom: 0;
+    color: #DA5E42;
+}
+
+.ps-author:hover {
+    text-decoration: underline;
+    color: #DA5E42;
+}

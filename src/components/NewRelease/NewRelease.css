@@ -1,0 +1,9 @@
+.nr-img{
+    margin-top: -10px;
+
+    width: 618px;
+    padding-right: 0;
+    transform: translate(96%, -15%);
+    z-index: -1;
+    position: absolute;
+}

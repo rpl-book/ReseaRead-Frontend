@@ -1,0 +1,39 @@
+.lib-readinglist-container {
+    display: flex;
+    flex-direction: column; /* Membuat anak-anaknya berada dalam kolom */
+    align-items: center; /* Pusatkan secara horizontal di dalam container */
+}
+
+.add-new-list{
+    color: #DA5E42;
+}
+
+.add-new-list {
+    color: #DA5E42;
+}
+
+.add-new-list p{
+    margin-top: 0px;
+    margin-top: 3px;
+    padding: 7px;
+}
+  
+  
+.add-new-list p:hover, p:focus, p:active{
+    border-radius: 3px;
+    text-decoration: underline;
+    padding: 7px;
+    background-color: transparent;
+    color: #DA5E42;
+}
+
+.divider{
+    margin-top: 12px;
+    width: 156px;
+    height: 0.8px;
+    background-color: black;
+}
+
+.reading-list{
+    margin-top: 6px;
+}

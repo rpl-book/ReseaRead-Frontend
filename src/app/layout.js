@@ -1,8 +1,9 @@
 import NavigationBar from "@/components/NavigationBar";
+import Footer from "@/components/Footer";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "ReseaRead",
@@ -12,9 +13,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={nunito.className}>
+      <div className="container">
         <NavigationBar />
-        {children}
+        {children}    
+      </div>
+      <Footer/>
       </body>
     </html>
   );

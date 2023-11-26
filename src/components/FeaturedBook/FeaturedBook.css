@@ -1,0 +1,84 @@
+.banner{
+    background-color: #DAE9E9;
+    width: 100%;
+    height: 330px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.featured-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-title{
+    position: relative;
+    font-size: 36px;
+    color: #333333;
+    font-weight: 700;
+    line-height: 46px;
+    margin-top: 70px;
+    margin-left: 300px;
+}
+
+.featured-author{
+    width: 19.4rem;
+    height: 3.6rem;
+    font-size: 30px;
+    color: #0d765b;
+    margin-left: 300px;
+    z-index: 1;
+    padding-top: 14px;
+}
+
+.featured-desc{
+    width: 43rem;
+    height: 13rem;
+    font-size: 16px;
+    padding-right: 30px;
+    margin-left: 300px;
+    position: absolute;
+}
+
+.featured-img{
+    position:absolute;
+    margin-left: 40px;
+    margin-top: 110px;
+    border-radius: 5px;
+}
+
+.banner-button a{
+    top: -243px;
+    left: 46px;
+    font-size: 30px;
+}
+
+.banner-button-left a{
+    top: -175px;
+    left: 690px;
+}
+
+.banner-button-right a{
+    top: -199px;
+    left: 746px;
+}
+
+.banner-img-accent img{
+    width: 550px;
+    margin-left: 663px;
+    position: absolute;
+    z-index: -1;
+}
+
+/*---------button-------------------*/
+
+.featured-prev-next {
+    display: flex; 
+    position: absolute;
+    margin-left: 870px;
+    margin-top: -10px;
+}
+
+.button-want-to-read{
+    margin-top: 20px;
+}
