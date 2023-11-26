@@ -13,21 +13,23 @@ import AdditionalPost from "../AdditionalPost";
 const ProfilePage = ({data}) => {
   return (
     <div>
-      <div className="p-4 h-[160px] mb-[10%] flex justify-end items-start customGrad">
-        <button className="customBgButton">
-          <BsThreeDotsVertical/>
-        </button>
-      </div>
-      <div className="absolute top-[19%]">
-        <div className="rounded-full w-40 h-40 relative left-[10%] border-4 border-white">
-          <Image 
-            className="rounded-full w-40 h-40"
-            src={data.imgSrc}
-            alt="Profile pic"
-            height={159}
-            width={159}
-          />
+      <div className="p-4 h-[160px] mb-[10%] customGrad">
+        <div className="flex justify-end items-center ">
+          <button className="customBgButton">
+            <BsThreeDotsVertical/>
+          </button>
         </div>
+        <div className="relative top-[20%] ">
+          <div className=" border-4 border-white rounded-full w-40 h-40 flex flex-nowrap items-center">
+            <Image 
+              className="rounded-full"
+              src={data.imgSrc}
+              alt="Profile pic"
+              height={159}
+              width={159}
+            />
+          </div>
+      </div>
       </div>
       <div className="p-6">
         <p className="font-bold text-xl">{data.name}</p>

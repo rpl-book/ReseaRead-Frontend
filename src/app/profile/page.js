@@ -1,6 +1,9 @@
+'use client'
 import ProfilePage from "@/components/ProfilePage";
 import SideBar from "@/components/SideBar";
 import RightBar from "@/components/RightBar";
+import { useState } from "react";
+import ProfileSetting from "@/components/ProfileSetting";
 
 // import ContinueReading from "@/components/ContinueReading/";
 // import NewRelease from "@/components/NewRelease/";
@@ -8,13 +11,19 @@ import RightBar from "@/components/RightBar";
 
 
 const Profile = () => {
+  const [activeMenu,setActiveMenu] = useState(null)
+
   const dataProfile = {
-    name:'Sopia Yu',
-    username:'@sopiayu',
-    imgSrc:'/com-card6.jpg',
+    name:'Cattleya Yu',
+    username:'@cattyu',
+    birthDate:'September 15, 1992',
+    gender:'Female',
+    email:'cattleyayu@gmail.com',
+    password:'**********',
+    imgSrc:'/prof-pic1.jpg',
     bio:'Join me on this bookish adventure as we explore diverse genres, discover hidden gems, and discuss all things book-related',
-    followers:'100',
-    following:'100',
+    followers:'91',
+    following:'11',
     read:{
       currentRead:{
         title:'After Lives',
@@ -28,20 +37,24 @@ const Profile = () => {
         },
         {
           id:2,
-          imgSrc:'/cr-book2.jpg', 
+          imgSrc:'/rl1.jpg', 
         },
         {
           id:3,
-          imgSrc:'/cr-book3.jpeg', 
+          imgSrc:'/rl2.jpg', 
         },
         {
           id:4,
-          imgSrc:'/tp-book1.jpg', 
+          imgSrc:'/rl3.jpg', 
         },
         {
           id:5,
-          imgSrc:'/tp-book2.jpg', 
+          imgSrc:'/rl4.jpg', 
         },
+        {
+          id:6,
+          imgSrc:'/rl5.jpg', 
+        }
       ]
     },
     post:[
@@ -61,12 +74,30 @@ const Profile = () => {
       }
     ]
   }
+  const onClickButton = (data) => {
+    setActiveMenu((prevData)=>{
+      if(prevData == data) 
+        return null
+      else
+        return data
+    })
+  }
   return (
     <main className="flex mt-4">
       {/* <div className="container mx-auto max-w-screen-lg flex"> */}
-        <div className="w-1/4 flex justify-center"><SideBar/></div>
-        <div className="w-2/4"><ProfilePage data={dataProfile}/></div>
-        <div className="w-1/4 flex justify-center"><RightBar/></div>
+        <div className="w-1/4 flex justify-center"><SideBar onClickButton={onClickButton}/></div>
+        {activeMenu === null ?
+        <>
+          <div className="w-2/4">
+            <ProfilePage data={dataProfile}/> 
+          </div>
+          <div className="w-1/4 flex justify-center"><RightBar/></div>
+        </>
+        : activeMenu === 'Setting' ? 
+        <div className="w-3/4">
+          <ProfileSetting data={dataProfile}/>
+        </div>
+        : "On Proggress" }
       {/* </div> */}
     </main>
   );

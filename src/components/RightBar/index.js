@@ -27,27 +27,27 @@ const RightBar = () => {
   const bookTrend = [
     {
       id:1,
-      imgSrc:'/cr-book1.jpg'
+      imgSrc:'/tr1.jpg'
     },
     {
       id:2,
-      imgSrc:'/cr-book2.jpg'
+      imgSrc:'/tr2.jpg'
     },
     {
       id:3,
-      imgSrc:'/cr-book3.jpeg'
+      imgSrc:'/tr3.jpg'
     },
     {
       id:4,
-      imgSrc:'/tp-book1.jpg'
+      imgSrc:'/tr4.jpg'
     },
     {
       id:5,
-      imgSrc:'/tp-book2.jpg'
+      imgSrc:'/tr5.jpg'
     },
     {
       id:6,
-      imgSrc:'/tp-book3.jpg'
+      imgSrc:'/tr6.jpg'
     },
   ]
   return (
