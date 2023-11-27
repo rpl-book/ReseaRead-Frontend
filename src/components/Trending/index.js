@@ -28,7 +28,7 @@ const Trending = ({data}) => {
                   objectFit="cover"
                 />
               </div>
-                <div className="mt-4 text-xl font-bold ">
+                <div className="mt-4 h-1/6 text-xl font-bold ">
                   {dt.title}
                 </div>
                 <div className="mt-2 text-base text-customColorOrange">

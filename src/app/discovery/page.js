@@ -1,16 +1,10 @@
 'use client'
-import ProfilePage from "@/components/ProfilePage";
-import SideBar from "@/components/SideBar";
-import RightBar from "@/components/RightBar";
 import { useState } from "react";
-import ProfileSetting from "@/components/ProfileSetting";
 import Category from "@/components/Category";
 import PublicReadList from "@/components/PublicReadList";
 import Trending from "@/components/Trending";
-
-// import ContinueReading from "@/components/ContinueReading/";
-// import NewRelease from "@/components/NewRelease/";
-// import TopPicks from "@/components/TopPicks/";
+import Button from "@/components/Button";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 
 const Discovery = () => {
@@ -173,24 +167,31 @@ const Discovery = () => {
     })
   }
   return (
-    <main className="mt-4">
+    <main className="mt-8 container mx-auto max-w-screen-lg">
       <div className="font-bold text-customDefaultText text-3xl w-[128px] border-b-2">
         Category
       </div>
       <div className="mt-4">
-          <Category data={dataCategory} />
+          <Category data={dataCategory} detail={true} />
       </div>
-      <div className="font-bold text-customDefaultText text-3xl flex justify-between">
+      <div className="font-bold text-customDefaultText text-3xl flex justify-between items-center">
         <div>Trending</div>
-        <div>{"< > "}</div>
+        <div className="flex space-x-2">
+          <Button className="left" iconTag={<BsChevronLeft />} buttonName="" fontSize="12" color="white" targetPage="#"/>
+          <Button className="right" iconTag={<BsChevronRight />} buttonName="" fontSize="12" color="white" targetPage="#"/>
+        </div>
       </div>
       <div className="w-[128px] border-b-2">
       </div>
       <div className="mt-4">
           <Trending data={dataTrending} />
       </div>
-      <div className="font-bold text-customDefaultText text-3xl ">
-        Public Reading List
+      <div className="font-bold text-customDefaultText text-3xl flex justify-between items-center">
+        <div>Public Reading List</div>
+        <div className="flex space-x-2">
+          <Button className="left" iconTag={<BsChevronLeft />} buttonName="" fontSize="12" color="white" targetPage="#"/>
+          <Button className="right" iconTag={<BsChevronRight />} buttonName="" fontSize="12" color="white" targetPage="#"/>
+        </div>
       </div>
       <div className="w-[128px] border-b-2">
       </div>
