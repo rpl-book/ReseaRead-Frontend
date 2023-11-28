@@ -4,22 +4,23 @@ import SideBar from "@/components/SideBar";
 import RightBar from "@/components/RightBar";
 import { useState } from "react";
 import ProfileSetting from "@/components/ProfileSetting";
+import TimelinePage from "@/components/TimelinePage";
 
 // import ContinueReading from "@/components/ContinueReading/";
 // import NewRelease from "@/components/NewRelease/";
 // import TopPicks from "@/components/TopPicks/";
 
 
-const Profile = () => {
+const Timeline = () => {
   const [activeMenu,setActiveMenu] = useState(null)
 
   let dataProfile = {
     name:'Cattleya Yu',
     username:'@cattyu',
-    birthDate:'September 15, 1992',
+    birthDate:'1992-09-15',
     gender:'Female',
     email:'cattleyayu@gmail.com',
-    password:'**********',
+    password:'asdfghjklqwe123',
     imgSrc:'/prof-pic1.jpg',
     bio:'Join me on this bookish adventure as we explore diverse genres, discover hidden gems, and discuss all things book-related',
     followers:'91',
@@ -86,6 +87,61 @@ const Profile = () => {
       }
     ]
   }
+  let timelinePost = [
+    {
+      id:3,
+      name:'Alexis Kim',
+      imgSrc:'/prof-pic2.png',
+      username:'@lexxK',
+      date:'2023-11-28',
+      postData:{
+        text:'Hello Friends, just started to read this amazing book.. !',
+        books:{
+          id:2,
+          title:'Happily Never After',
+          writer:'Lynn Painter',
+          rating:4.3,
+          category:'Romance, Citypop',
+          imgSrc:'/trend2.jpg'
+        }
+      },
+      comments:1,
+      likes:4,
+    },
+    {
+      id:2,
+      name:'Alexis Kim',
+      imgSrc:'/prof-pic2.png',
+      username:'@lexxK',
+      date:'2023-11-28',
+      postData:{
+        text:'Another book from Lynn Painter...',
+        books:{
+          id:1,
+          title:'Better Than The Movies',
+          writer:'Lynn Painter',
+          rating:4.9,
+          category:'Romance, Citypop',
+          imgSrc:'/trend1.jpg'
+        },
+      },
+      comments:1,
+      likes:4,
+    },
+    {
+      id:1,
+      name:'Alexis Kim',
+      imgSrc:'/prof-pic2.png',
+      username:'@lexxK',
+      date:'2023-11-28',
+      postData:{
+        text:'Hello Friends, just started to read this amazing book.. !',
+        books:null,
+      },
+      comments:1,
+      likes:4,
+    }
+  ]
   const onClickButton = (data) => {
     setActiveMenu((prevData)=>{
       if(prevData == data) 
@@ -98,10 +154,10 @@ const Profile = () => {
     <main className="flex mt-4">
       {/* <div className="container mx-auto max-w-screen-lg flex"> */}
         <div className="w-1/4 flex justify-center"><SideBar onClickButton={onClickButton}/></div>
-        {activeMenu === null ?
+        {activeMenu === null || activeMenu === 'Timeline' ?
         <>
           <div className="w-2/4">
-            <ProfilePage data={dataProfile} user={true}/> 
+            <TimelinePage data={dataProfile} otherData={timelinePost}/> 
           </div>
           <div className="w-1/4 flex justify-center"><RightBar/></div>
         </>
@@ -115,4 +171,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Timeline;
