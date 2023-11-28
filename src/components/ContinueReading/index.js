@@ -8,7 +8,6 @@ const ContinueReading = () => {
       <SubsectionText title="Continue Reading"/>
 
       <div class="grid grid-cols-3 gap-4">
-        
           <div class="mt-10">
             <ConReadingCard 
               bookTitle={"After Live"} 
@@ -39,6 +38,7 @@ const ContinueReading = () => {
             />
           </div>
         </div>
+
         <div class="flex justify-center items-center mt-20 mb-20">
           <Button buttonName="See More" size="20" color="white" targetPage="/" />
         </div>

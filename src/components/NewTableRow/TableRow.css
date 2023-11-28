@@ -1,5 +1,8 @@
 .configure{
     font-size: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .configure button:hover, .configure button:focus, .configure button:active{

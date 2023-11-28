@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import "./Button.css";
+import "./Button2.css";
 
-const Button = ({ iconTag, buttonName, fontSize, color, targetPage, width }) => {
+const Button2 = ({ iconTag, buttonName, fontSize, targetPage, color}) => {
   return (
     <div className="button">
       <Link href={targetPage} legacyBehavior>
-        <a style={{ color, fontSize: fontSize, width: width }}>
+        <a style={{ color:color, fontSize: fontSize}}>
           {iconTag}
           {buttonName && <span>{buttonName}</span>}
         </a>
@@ -14,5 +14,5 @@ const Button = ({ iconTag, buttonName, fontSize, color, targetPage, width }) => 
   );
 };
 
-export default Button;
+export default Button2;
 

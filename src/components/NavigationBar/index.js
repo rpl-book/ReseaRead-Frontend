@@ -15,24 +15,18 @@ const NavigationBar = () => {
     <div className="container mx-auto max-w-screen-lg"> 
       <nav>
         <div>
-          <a href="?">
+          <a href="/">
               <Image src="/logo.png" alt="logo" width={175} height={44.064} />
           </a>
         </div>
 
         <ul>
           <li className="">
-            <a href="#">Library</a>
+            <a href="#">Catalog</a>
           </li>
 
           <li>
-            <a href="#">Discovery</a>
-            <ul className="dropdown">
-              <li><a href="#">Catalog</a></li>
-              <li><a href="#">Community</a></li>
-              <li><a href="#">My Library</a></li>
-              <li><a href="#">My Community</a></li>
-            </ul>
+            <a href="/library">My Library</a>
           </li>
 
           <li><a href="#">Timeline</a></li>

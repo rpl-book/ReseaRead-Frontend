@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 import "./FeaturedBook.css"; 
@@ -40,9 +38,6 @@ const FeaturedBook = ({ image, title, author, desc }) => {
             <Button buttonName="Want To Read" size="20" color="white" targetPage="/"/>
           </div>
         </div>
-
-        
-
       </div>
     </div>
 

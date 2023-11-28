@@ -10,15 +10,14 @@
     display: flex;
     gap: 20px; /* Jarak antara ikon */
     justify-content: flex-end; /* Konten menjadi rata kanan */
-  }
-  
-.library-tools a {
-    text-decoration: none;
-    color: black; /* Warna ikon */
-    font-size: 30px;
 }
 
-.library-tools a:hover, .library-tools a:focus, .library-tools a:active{
+.library-tools button{
+  font-size: 30px;
+
+}
+
+.library-tools button:hover, .library-tools button:focus, .library-tools button:active{
   text-decoration: none;
   color: #DA5E42;
 

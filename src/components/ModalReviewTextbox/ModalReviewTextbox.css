@@ -1,0 +1,19 @@
+textarea{
+    width: 100%;
+    padding: 15px;
+    max-height: 300px;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #b3b3b3; /* Change the border color on focus */
+    box-shadow: 0 0 5px #b3b3b3; /* Add a subtle box shadow on focus */
+  }
+
+.label{
+    font-size: 15px;
+}
+
+.modal-button .button{
+    font-size: 15px;
+}

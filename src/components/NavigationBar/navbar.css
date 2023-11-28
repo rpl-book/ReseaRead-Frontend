@@ -29,32 +29,11 @@ nav ul li a{
     font-size: 16px;
 }
 
-.dropdown a{
-    color: #F7F6F4;
-}
-
-nav ul li ul.dropdown li{
-    display: block;
-}
-
-nav ul li ul.dropdown{
-    width: 100%;
-    background: #E17E68;
-    position: absolute;
-    display: none;
-    border-radius: 3px;
-    z-index: 2;
-}
 
 nav ul li a:hover{
     background: #DA5E42;
     color: #fff;
     border-radius: 3px;
-    text-decoration: none;
-}
-
-nav ul li:hover ul.dropdown{
-    display: block;
     text-decoration: none;
 }
 

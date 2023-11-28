@@ -1,0 +1,74 @@
+.book-img img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 170px;
+    margin-left: 8px;
+
+}
+
+.book-desc label{
+    width: 80px;
+    display: block;
+    color: black;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.book-desc input{
+    color: black;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 3px 5px 5px 10px;
+    width: 200px;
+}
+
+.book-desc2 input{
+    padding: 3px 5px 5px 10px;
+}
+
+.input-page-date input{
+    width: 50px;
+    text-align: center;
+    padding: 1px;
+}
+
+.book-desc-1, .book-desc-2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.book-desc-2 label{
+    width: 120px;
+}
+
+.box{
+    background-color: #DA5E42;
+    width: 100%;
+    height: auto;
+}
+
+select {
+    padding: 0.2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 200px;
+    font-size: 15px;
+    color: black;
+}
+ 
+select option {
+    padding: 0.5rem;
+    color: black    ;
+
+}
+
+select, input:focus {
+    outline: none;
+    border-color: #b3b3b3;
+    box-shadow: 0 0 5px #b3b3b3; 
+}

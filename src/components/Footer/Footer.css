@@ -39,9 +39,8 @@
 .footer-line{
     width: 60px;
     height: 2px;
-    position: absolute;
+    position: ;
     background-color: #fff;
-    margin-bottom: 100px;
 }
 
 .footer-heading-text{
