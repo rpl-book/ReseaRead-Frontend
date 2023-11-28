@@ -12,17 +12,21 @@ import { useState } from "react";
 import Button from "../Button";
 
 const ProfileSetting = ({data}) => {
+  const [name,setName] = useState(data.name)
   const [activeButton,setActiveButton] = useState('Account')
   const label = ['Account','Notification','Privacy','Languages','Help']
+  const handleInputChange = (event) => {
+    setName(event.target.value);
+  };
   return (
     <div className="w-full bg-white rounded-xl">
       <div className="flex text-[20px] w-full h-[12%]">
         {label.map((dt,index)=>(
         <button className={index===0 ? 
-          ("bg-white w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText rounded-tl-xl "+(activeButton === dt ? " bg-customGrayButton text-white" : "")) :
+          ("w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText rounded-tl-xl "+(activeButton === dt ? " bg-customGrayButton text-white" : "")) :
           index===(label.length-1) ? 
-          ("bg-white w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText rounded-tr-xl "+(activeButton === dt ? " bg-customGrayButton text-white" : "")) :
-          ("bg-white w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText"+(activeButton === dt ? " bg-customGrayButton text-white" : ""))
+          ("w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText rounded-tr-xl "+(activeButton === dt ? " bg-customGrayButton text-white" : "")) :
+          ("w-full px-10 py-5 hover:bg-customGrayButton hover:text-white text-customDefaultText"+(activeButton === dt ? " bg-customGrayButton text-white" : ""))
         } 
         onClick={()=>{
           setActiveButton(dt)
@@ -41,13 +45,14 @@ const ProfileSetting = ({data}) => {
           />
         </div>
         <div className="w-3/4 pt-16">
+          <form action="#">
           <div className="grid grid-cols-2 text-customDefaultText">
             <div className="pt-4 pb-4">
               Name
             </div>
-            <div className="pt-4 pb-4">
-              {data.name}
-            </div>
+            <input className="pt-4 pb-4" value={name} type="text" onChange={handleInputChange}/>
+              {/* {data.name} */}
+            {/* </div> */}
             <div className="pt-4 pb-4">
               Date of Birth
             </div>
@@ -57,9 +62,13 @@ const ProfileSetting = ({data}) => {
             <div className="pt-4 pb-4">
               Gender
             </div>
-            <div className="pt-4 pb-4">
-              {data.gender}
-            </div>
+            <select className="pt-4 pb-4">
+              <option>Female</option>
+              <option>Male</option>
+            </select>
+            {/* <div className="pt-4 pb-4"> */}
+              {/* {data.gender} */}
+            {/* </div> */}
             <div className="pt-4 pb-4">
               Email
             </div>
@@ -67,6 +76,7 @@ const ProfileSetting = ({data}) => {
               {data.email}
             </div>
           </div>
+          </form>
           <div className="pt-8 pb-4 text-customDefaultText font-bold">
             Account Info
           </div>
