@@ -13,7 +13,7 @@ import ProfileSetting from "@/components/ProfileSetting";
 const Profile = () => {
   const [activeMenu,setActiveMenu] = useState(null)
 
-  const dataProfile = {
+  let dataProfile = {
     name:'Cattleya Yu',
     username:'@cattyu',
     birthDate:'September 15, 1992',
