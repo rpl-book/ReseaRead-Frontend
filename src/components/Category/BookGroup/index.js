@@ -5,9 +5,13 @@ import { CiViewTimeline, CiMail } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
 import Button from "../../Button"
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const BookGroup = () => {
+
+  const searchParam = useSearchParams()
+  const id = searchParam.get('id')
+  
   const groupBook = [
     {
       id:1,
@@ -29,12 +33,12 @@ const BookGroup = () => {
         {
           groupBook.map((dt,index)=>(
             <div key={'groupbook_'+index} className="cursor-pointer" onClick={()=>{
-              // router.push('/discovery/category?id='+dt.id)
+              router.push('/discovery/category?id='+id+'&id_group='+dt.id)
             }}>
               <div className="mt-4 grid grid-cols-3 gap-2 w-full">
                 {
                   dt.booksThumb.map((dts,idx)=>(
-                    <div key={"book_idx"} className="relative h-[138px]">
+                    <div key={"book_idx_"+idx} className="relative h-[138px]">
                       <Image
                         className="rounded-xl "
                         src={dts}
@@ -65,7 +69,7 @@ const BookGroup = () => {
               <div className="mt-4 grid grid-cols-3 gap-2 w-full">
                 {
                   dt.booksThumb.map((dts,idx)=>(
-                    <div key={"book_idx"} className="relative h-[138px]">
+                    <div key={"book_idx"+idx+idx} className="relative h-[138px]">
                       <Image
                         className="rounded-xl "
                         src={dts}
@@ -96,7 +100,7 @@ const BookGroup = () => {
               <div className="mt-4 grid grid-cols-3 gap-2 w-full">
                 {
                   dt.booksThumb.map((dts,idx)=>(
-                    <div key={"book_idx"} className="relative h-[138px]">
+                    <div key={"book_idx"+idx+idx+idx} className="relative h-[138px]">
                       <Image
                         className="rounded-xl "
                         src={dts}

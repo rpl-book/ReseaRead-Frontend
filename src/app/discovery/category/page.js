@@ -10,12 +10,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import BookGroup from "@/components/Category/BookGroup";
 import Image from "next/image";
 import BookTagFind from "@/components/BookFindTag";
+import BookGroupDetail from "@/components/Category/BookGroup/BookGroupDetail";
 
 const CategoryDetail = () => {
   const [activeMenu,setActiveMenu] = useState(null)
   const router = useRouter()
   const searchParam = useSearchParams()
   const id = searchParam.get('id')
+  const id_group = searchParam.get('id_group')
 
   const dataCategory = [
     {
@@ -100,6 +102,21 @@ const CategoryDetail = () => {
     }
   ]
 
+  const groupBook = [
+    {
+      id:1,
+      booksThumb:['/thriler1.jpg','/thriler2.jpg','/thriler3.jpg','/thriler4.jpg','/thriler5.jpg','/thriler6.jpg',],
+      name:'Best Twist',
+      countBook:4432,
+    },
+    {
+      id:2,
+      booksThumb:['/thriler1.jpg','/thriler2.jpg','/thriler3.jpg','/thriler4.jpg','/thriler5.jpg','/thriler6.jpg',],
+      name:'New Series',
+      countBook:4432,
+    }
+  ]
+
   const dataTrending = [
     {
       id:1,
@@ -140,6 +157,57 @@ const CategoryDetail = () => {
       rating:4.3,
       category:'Romance, Citypop',
       imgSrc:'/trend5.png'
+    },
+  ]
+
+  const dataBookGroupDetail = [
+    {
+      id:1,
+      title:'Bright Young Women',
+      writer:'Jessica Knoll',
+      rating:4.9,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup1.png'
+    },
+    {
+      id:2,
+      title:'The Only One Left',
+      writer:'Riley Sager',
+      rating:4.3,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup2.png'
+    },
+    {
+      id:3,
+      title:'The Thursday Murder Club',
+      writer:'Richard Osman',
+      rating:4.3,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup3.png'
+    },
+    {
+      id:4,
+      title:'1984',
+      writer:'George Orwell',
+      rating:4.3,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup4.png'
+    },
+    {
+      id:5,
+      title:'Norwegian Wood',
+      writer:'Murakami',
+      rating:4.3,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup5.png'
+    },
+    {
+      id:6,
+      title:'The Last Devil To Die',
+      writer:'Richard Osman',
+      rating:4.3,
+      category:'Fiction, Thriller, Psychological, Suspense',
+      imgSrc:'/bgroup6.png'
     },
   ]
 
@@ -235,62 +303,85 @@ const CategoryDetail = () => {
   }
   return (
     <main className="mt-8 container mx-auto max-w-screen-lg">
-        {id !== null ? 
-        <div className="flex space-x-20">
-            <div className="w-3/4">
-                <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
-                    <button onClick={()=>{
-                        router.push('/discovery')
-                    }}>
-                        <BsArrowLeft/>
-                    </button>
-                    <div className="cursor-pointer" onClick={()=>
-                        router.push('/discovery/category')
-                    }>
-                        Category
+        {
+          id !== null ? 
+          <div className="flex space-x-20">
+              <div className="w-3/4">
+                  <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
+                      <button onClick={()=>{
+                          router.push('/discovery')
+                      }}>
+                          <BsArrowLeft/>
+                      </button>
+                      <div className="cursor-pointer" onClick={()=>
+                          router.push('/discovery/category')
+                      }>
+                          Category
+                      </div>
+                      <div className="cursor-pointer" onClick={()=>
+                          router.push('/discovery/category?id='+id)
+                      }>
+                          {"> "+dataCategory[id-1].name}
+                      </div>
+                      {
+                      id_group !== null ? 
+                        <div className="cursor-pointer" onClick={()=>
+                            router.push('/discovery/category?id='+id+'&id_group='+id_group)
+                        }>
+                            {"> "+groupBook[id_group-1].name}
+                        </div>
+                      : 
+                          ''
+                      }
+                      
+                  </div>
+                  
+                  {
+                  id_group !== null ? 
+                    <div className="mt-4">
+                        <BookGroupDetail data={dataBookGroupDetail} category={groupBook[id_group-1].name}/>
                     </div>
-                    <div>
-                        {"> "+dataCategory[id-1].name}
+                  : 
+                    <div className="mt-4">
+                        <BookGroup data={dataCategory}/>
                     </div>
-                </div>
-                <div className="mt-4">
-                    <BookGroup data={dataCategory}/>
-                </div>
-            </div>
-            <div className="w-2/4">
-                <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
-                    Browse Book by Tag
-                </div>
-                <div className="mt-4">
-                    <BookTagFind/>
-                </div>
-            </div>
-        </div> :
-        <div className="w-full">
-            <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
-                <button onClick={()=>{
-                    router.push('/discovery')
-                }}>
-                    <BsArrowLeft/>
-                </button>
-                <div className="cursor-pointer" onClick={()=>
-                    router.push('/discovery/category')
-                }>
-                    Category
-                </div>
-                {id !== null &&
-                <div>
-                    {"> "+dataCategory[id].name}
-                </div>
-                }
-            </div>
-        </div>
+                  }
+              </div>
+              <div className="w-2/4">
+                  <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
+                      Browse Book by Tag
+                  </div>
+                  <div className="mt-4">
+                      <BookTagFind/>
+                  </div>
+              </div>
+          </div> 
+          :
+          <div className="w-full">
+              <div className="font-bold flex items-center space-x-4 pt-2 pb-2 text-customDefaultText text-2xl w-full border-b-2">
+                  <button onClick={()=>{
+                      router.push('/discovery')
+                  }}>
+                      <BsArrowLeft/>
+                  </button>
+                  <div className="cursor-pointer" onClick={()=>
+                      router.push('/discovery/category')
+                  }>
+                      Category
+                  </div>
+                  {id !== null &&
+                  <div>
+                      {"> "+dataCategory[id].name}
+                  </div>
+                  }
+              </div>
+          </div>
         }
       
       {id === null &&
-      <div className="mt-4">
-          <Category data={dataCategory} />
-      </div>
+        <div className="mt-4">
+            <Category data={dataCategory} />
+        </div>
       }
     </main>
   );
