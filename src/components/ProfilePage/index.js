@@ -9,8 +9,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
 import AdditionalProfile from "../AdditionalProfile";
 import AdditionalPost from "../AdditionalPost";
+import Button from "../Button";
 
-const ProfilePage = ({data}) => {
+const ProfilePage = ({data,user}) => {
   return (
     <div>
       <div className="p-4 h-[160px] mb-[10%] customGrad">
@@ -29,7 +30,17 @@ const ProfilePage = ({data}) => {
               width={159}
             />
           </div>
-      </div>
+        </div>
+        {!user && 
+        <>
+        <div className="relative top-[-10%] flex justify-end">
+          <button className="flex justify-center rounded-xl text-sm p-4 w-[85px] bg-customColorButton hover:bg-customColorButtonHover text-white cursor-pointer"><span>Follow</span></button>
+        </div>
+        <div className="flex justify-end">
+          <button className="flex justify-center rounded-xl text-sm p-4 w-[85px] bg-customColorButton hover:bg-customColorButtonHover text-white cursor-pointer"><span>Message</span></button>
+        </div>
+        </>
+        }
       </div>
       <div className="p-6">
         <p className="font-bold text-xl">{data.name}</p>
@@ -44,16 +55,16 @@ const ProfilePage = ({data}) => {
         <AdditionalProfile data={data.read}/>
       </div>
       <div className="flex items-center">
-        <div className="w-8/12 px-4">
+        <div className={user ? "w-8/12 px-4": "w-full px-4"}>
           <div className="border-2">
           </div>
         </div>
-        <div className="w-4/12 text-customColorOrange">
+        {user && <div className="w-4/12 text-customColorOrange">
           <button className="flex items-center space-x-4">
             <BsFillPlusCircleFill className="text-4xl"/>
             <span> Add New Post </span>
           </button>
-        </div>
+        </div> }
       </div>
       <div className="flex items-center mt-8">
         <AdditionalPost data={data}/>

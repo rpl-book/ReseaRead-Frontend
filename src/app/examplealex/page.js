@@ -14,14 +14,14 @@ const Profile = () => {
   const [activeMenu,setActiveMenu] = useState(null)
 
   let dataProfile = {
-    name:'Cattleya Yu',
-    username:'@cattyu',
-    birthDate:'September 15, 1992',
+    name:'Alexis Kim',
+    username:'@lexxK',
+    birthDate:'1992-09-15',
     gender:'Female',
     email:'cattleyayu@gmail.com',
-    password:'**********',
-    imgSrc:'/prof-pic1.jpg',
-    bio:'Join me on this bookish adventure as we explore diverse genres, discover hidden gems, and discuss all things book-related',
+    password:'asdfghjklqwe123',
+    imgSrc:'/prof-pic2.png',
+    bio:'Books enthu',
     followers:'91',
     following:'11',
     read:{
@@ -59,31 +59,25 @@ const Profile = () => {
     },
     post:[
       {
-        name:'Cattleya Yu',
-        username:'@cattyu',
-        imgSrc:'/prof-pic1.jpg',
         id:1,
-        date:'2023-09-15',
+        name:'Alexis Kim',
+        imgSrc:'/prof-pic2.png',
+        username:'@lexxK',
+        date:'2023-11-28',
         postData:{
-          text:'I highly recommend The Mountain Is You by Brianna Wiest! Worth to buy',
-          books:null,
+          text:'Hello Friends, just started to read this amazing book.. !',
+          books:{
+            id:2,
+            title:'Happily Never After',
+            writer:'Lynn Painter',
+            rating:4.3,
+            category:'Romance, Citypop',
+            imgSrc:'/trend2.jpg'
+          }
         },
         comments:1,
         likes:4,
       },
-      {
-        name:'Cattleya Yu',
-        username:'@cattyu',
-        imgSrc:'/prof-pic1.jpg',
-        id:2,
-        date:'2023-09-13',
-        postData:{
-          text:'Discovering great books through recommendations feels like exploring a treasure trove of knowledge and inspiration~~',
-          books:null,
-        },
-        comments:1,
-        likes:4,
-      }
     ]
   }
   const onClickButton = (data) => {
@@ -101,7 +95,7 @@ const Profile = () => {
         {activeMenu === null ?
         <>
           <div className="w-2/4">
-            <ProfilePage data={dataProfile} user={true}/> 
+            <ProfilePage data={dataProfile}/> 
           </div>
           <div className="w-1/4 flex justify-center"><RightBar/></div>
         </>

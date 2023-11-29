@@ -18,6 +18,8 @@ module.exports = {
       colors:{
         customDefaultText:'#4b4b4b',
         customColorOrange:'#E17E68',
+        customColorButton:'#DA5E42',
+        customColorButtonHover:'#B34E37',
         customColorGray:'#AEAEAE',
         customGrayButton:'#A9B9B9',
       },
