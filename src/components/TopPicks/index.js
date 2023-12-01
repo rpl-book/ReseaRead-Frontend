@@ -11,13 +11,11 @@ const TopPicks = () => {
         <SubsectionText title="Top Picks For You"/>
       </div>
 
-      <div class="grid grid-cols-6 gap-7"> 
-        <TopPicksCard bookAuthor={"Lynn Painter"} bookImg={"/tp-book1.jpg"} bookRating={"4.3"} bookTitle={"Better Than Movies"}/> 
-        <TopPicksCard bookAuthor={"Virginia Woolf"} bookImg={"/tp-book2.jpg"} bookRating={"4.3"} bookTitle={"The Waves"}/> 
-        <TopPicksCard bookAuthor={"Murakami"} bookImg={"/tp-book3.jpg"} bookRating={"4.3"} bookTitle={"Norwegian Woods"}/> 
-        <TopPicksCard bookAuthor={"George Orwell"} bookImg={"/tp-book4.jpg"} bookRating={"4.3"} bookTitle={"1984"}/> 
-        <TopPicksCard bookAuthor={"Britt Bennett"} bookImg={"/tp-book5.webp"} bookRating={"4.3"} bookTitle={"The Mothers"}/> 
-        <TopPicksCard bookAuthor={"Sally Roney"} bookImg={"/tp-book6.png"} bookRating={"4.3"} bookTitle={"Normal People"}/> 
+      <div class="grid grid-cols-4 ml-0"> 
+        <TopPicksCard bookAuthor={"Lynn Painter"} bookImg={"/tp-book1.jpg"} bookRating={"4.3"} bookTitle={"Better Than Movies"} linktoauthor={"#"} linktobook={"#"} tag1={"Romance"} route1={"#"} tag2={"City Pop"} route2={"#"}/> 
+        <TopPicksCard bookAuthor={"Virginia Woolf"} bookImg={"/tp-book2.jpg"} bookRating={"4.3"} bookTitle={"The Waves"} linktoauthor={"#"} linktobook={"#"} tag1={"Psychological"} route1={"#"}/>
+        <TopPicksCard bookAuthor={"Murakami"} bookImg={"/tp-book3.jpg"} bookRating={"4.3"} bookTitle={"Norwegian Woods"} linktoauthor={"#"} linktobook={"#"} tag1={"Romance"} route1={"#"} tag2={"Fiction"} route2={"#"}/> 
+        <TopPicksCard bookAuthor={"George Orwell"} bookImg={"/tp-book4.jpg"} bookRating={"4.3"} bookTitle={"1984"} linktoauthor={"#"} linktobook={"#"} tag1={"Fiction"} route1={"#"} tag2={"City Thriller"} route2={"#"}/> 
       </div>
 
       <div class="flex justify-center items-center mt-10 mb-10">

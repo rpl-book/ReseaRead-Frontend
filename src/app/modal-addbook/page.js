@@ -7,7 +7,7 @@ import "./modal.css";
 const Modal = ({ closeModal }) => {
   return (
     <div className="modal">
-      <div onClick={closeModal} className="overlay"></div>
+      <div className="overlay"></div>
       <div className="modal-content">
         <div className="mt-3 mb-3">
           <p className="modal-header">New Book</p>

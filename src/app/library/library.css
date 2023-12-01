@@ -14,13 +14,11 @@
 
 .library-tools button{
   font-size: 30px;
-
 }
 
 .library-tools button:hover, .library-tools button:focus, .library-tools button:active{
   text-decoration: none;
   color: #DA5E42;
-
 }
 
 

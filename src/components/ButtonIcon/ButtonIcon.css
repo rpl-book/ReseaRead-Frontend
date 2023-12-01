@@ -14,7 +14,8 @@
     font-size: 20px;
 }
 
-.button:hover, .button:focus, .button:active{
+.buttonIcon a:hover, .buttonIcon a:focus, .buttonIcon a:active{
     text-decoration: none;
     color: #B34E37;
+    font-weight: bold;
 }

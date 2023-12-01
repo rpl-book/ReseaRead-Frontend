@@ -1,0 +1,19 @@
+.header p{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.book-recs{
+    display: flex;
+    align-content: space-between;
+}
+
+
+

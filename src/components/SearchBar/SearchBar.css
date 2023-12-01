@@ -1,0 +1,20 @@
+.searchbar input{
+    border-radius: 20px;
+    width: 100%;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.searchbar{
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+}
+
+.searchbar input:focus{
+    outline: none;
+}

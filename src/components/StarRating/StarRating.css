@@ -1,17 +1,6 @@
-.rating {
-    color: #b3b3b3;
-    display: flex;
-  }
-  
-  .star {
-    padding-right: 7px;
-    font-size: 25px;
-  }
-  
-  .star:hover,
-  .star:active,
-  .star:focus {
-    color: #DA5E42;
-    text-decoration: none;
-    padding-right: 7px;
-  }
+.tp-rating{
+  display: flex;
+  text-align: center;
+  font-size: 16px;
+  color: #DA5E42;
+}

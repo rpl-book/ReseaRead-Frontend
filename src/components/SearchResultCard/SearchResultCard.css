@@ -1,0 +1,25 @@
+.book-img img{
+    width: 90px;
+    border-radius: 5px;
+}
+
+.add-button{
+    margin-left: 10px;
+}
+
+.card-content{
+    display: flex;
+    justify-content:space-between;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.linee{
+    width: 99%;
+    height: 1px;
+    background-color: black;
+    margin-left: 3px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}

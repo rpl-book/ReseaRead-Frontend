@@ -34,6 +34,22 @@
     color: black;
 }
 
+.p-tag{
+    font-size: 16px;
+    font-style: normal;
+    line-height: 30px;
+    color: rgb(181, 181, 181);
+    
+}
+
+.p-tag a{
+    margin-right: 4px;
+}
+
+.p-tag a:hover{
+    text-decoration: underline;
+}
+
 /*------------*/
 
 .p-desc{
