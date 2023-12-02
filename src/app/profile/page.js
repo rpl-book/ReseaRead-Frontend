@@ -4,6 +4,7 @@ import SideBar from "@/components/SideBar";
 import RightBar from "@/components/RightBar";
 import { useState } from "react";
 import ProfileSetting from "@/components/ProfileSetting";
+import { useRouter } from "next/navigation";
 
 // import ContinueReading from "@/components/ContinueReading/";
 // import NewRelease from "@/components/NewRelease/";
@@ -12,7 +13,7 @@ import ProfileSetting from "@/components/ProfileSetting";
 
 const Profile = () => {
   const [activeMenu,setActiveMenu] = useState(null)
-
+  const router = useRouter()
   let dataProfile = {
     name:'Cattleya Yu',
     username:'@cattyu',
@@ -109,6 +110,7 @@ const Profile = () => {
         <div className="w-3/4">
           <ProfileSetting data={dataProfile}/>
         </div>
+        : activeMenu === 'Timeline' ? router.push('/timeline') 
         : "On Proggress" }
       {/* </div> */}
     </main>

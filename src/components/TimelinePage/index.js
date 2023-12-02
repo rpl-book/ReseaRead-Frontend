@@ -18,7 +18,7 @@ const TimelinePage = ({data,otherData}) => {
 
   return (
     <div>
-      <div className="flex items-center mt-8">
+      <div className="flex items-center">
         <NewPost data={data} setDataPost={setDataPost}/>
       </div>
       <div className=" mt-8 border-2">

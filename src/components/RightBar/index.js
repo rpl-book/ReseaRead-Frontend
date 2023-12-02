@@ -2,6 +2,8 @@ import Image from "next/image";
 import "./style.css"; 
 import { BsBell, BsGear } from 'react-icons/bs';
 import { CiViewTimeline, CiMail } from "react-icons/ci";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const RightBar = () => {
   const knownAuthor = [
@@ -50,9 +52,62 @@ const RightBar = () => {
       imgSrc:'/tr6.jpg'
     },
   ]
+  const searchData = [
+    {
+      id:1,
+      username:'@lexxK',
+      name:'Alexis Kim',
+      imgSrc:'/prof-pic2.png'
+    },
+    {
+      id:2,
+      username:'@lexard',
+      name:'Alicia',
+      imgSrc:'/prof-pic3.png'
+    }
+  ]
+  const [search,setSearch] = useState(null)
+  const filteredData = searchData.filter((item) => item.username.includes(search));
+  const router = useRouter()
   return (
-    <div>
-      <div className="w-[285px] border-b-2 mb-8">
+    <div className="relative">
+      <div className="mb-8" >
+        <form className={!search?"search-bar m-0 w-full ":"search-bar m-0 w-full border-2 border-customColorOrange"}>
+          <input type="text" placeholder="Search for.." value={search} onChange={(event)=>{
+            setSearch(event.target.value)
+          }} />
+          <button type="submit">
+            <Image src="/icon-search.png" alt="icon-search" width={20} height={20} />
+          </button>
+        </form>
+        {search && 
+          <div className="absolute z-10 mt-2 p-4 bg-white w-full rounded-xl space-y-4 border-customColorOrange border-2">
+            {filteredData.length > 0 ? filteredData.map((dt,index)=>(
+              <div key={'searchData_'+index} className="flex space-x-2 items-center cursor-pointer" onClick={()=>{
+                router.push('/examplealex')
+              }}>
+                <div>
+                  <Image className="rounded-full border-2 border-white"
+                    src={dt.imgSrc}
+                    alt={dt.imgSrc}
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="flex-col items-center">
+                  <div>{dt.name}</div>
+                  <div className="text-customColorGray">{dt.username}</div>
+                </div>
+              </div>
+            )) :
+            <div  className="flex mt-2 mb-2">
+              User Not Found!
+            </div>
+          }
+          </div>
+        }
+      </div>
+      <div className="w-[285px] border-b-2 mb-8 mt-8">
         Author's You Might Know
       </div>
       {knownAuthor.map((dt,index)=>(

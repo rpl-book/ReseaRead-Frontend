@@ -151,7 +151,7 @@ const Timeline = () => {
     })
   }
   return (
-    <main className="flex mt-4">
+    <main className="flex mt-8">
       {/* <div className="container mx-auto max-w-screen-lg flex"> */}
         <div className="w-1/4 flex justify-center"><SideBar onClickButton={onClickButton}/></div>
         {activeMenu === null || activeMenu === 'Timeline' ?

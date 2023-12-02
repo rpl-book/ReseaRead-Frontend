@@ -144,7 +144,7 @@ const TimelinePost = ({data,dataUser,setDataPost}) => {
                   </button>
                 </div>
               </div>
-              {dataUser === dt.username &&
+              {dataUser === dt.username ?
               <div className="relative">
                 <button className="text-customColorOrange" onClick={()=>{
                   toggleDropdown(index)}}>
@@ -159,6 +159,19 @@ const TimelinePost = ({data,dataUser,setDataPost}) => {
                     <div className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2" >Edit</div>
                   </div>
                 )}
+              </div> :
+              <div className="relative">
+              <button className="text-customColorOrange" onClick={()=>{
+                toggleDropdown(index)}}>
+                <BsThreeDotsVertical/>
+              </button>
+              {dropdownStates[index] && (
+                <div className="bg-white rounded-md absolute w-[140px] border-2 py-4 border-black outline-2 dropdown-content right-0">
+                  <div className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2" onClick={()=>{
+                    toggleDropdown(index)
+                  }} >Report</div>
+                </div>
+              )}
               </div>
               }
           </div> 
