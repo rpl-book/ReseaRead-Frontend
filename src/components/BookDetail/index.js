@@ -68,6 +68,24 @@ const BookDetail = ({data}) => {
       return newStates;
     });
   };
+  
+  const [dropdownStatesLibrary, setDropdownStatesLibrary] = useState(false);
+  const toggleDropdownLibrary = () => {
+    setDropdownStatesLibrary((prevStates) => {
+      // const newStates = [...prevStates];
+      // newStates[index] = !newStates[index];
+      // return newStates;
+      return !prevStates
+    });
+  };
+  const [buttonText, setButtonText] = useState('Add to Library'); 
+  const handleChange = () => {
+    setButtonText('Added to Library');
+    
+    const element = document.getElementById('selectAddLibrary')
+    element.className = 'text-white flex space-x-2 items-center font-bold bg-customColorButton rounded-xl p-2 text-sm';
+    
+  };
   const deleteItem = () => {
     if (deleteIndex !== null) {
       setReviews((prevData) => 
@@ -83,15 +101,60 @@ const BookDetail = ({data}) => {
   return (
     <div className="flex px-8">
       <div className="flex-col m-4 w-3/12 items-center content-center justify-center">
-        <div className="flex justify-center rounded-xl">
-          <Image
-            className="rounded-xl"
-            src={data.imgSrc}
-            alt={data.title}
-            height={270}
-            width={180}
-            objectFit="fill"
-          />
+        <div className="flex flex-col justify-center rounded-xl items-center space-y-3">
+          <div>
+            <Image
+              className="rounded-xl"
+              src={data.imgSrc}
+              alt={data.title}
+              height={270}
+              width={180}
+              objectFit="fill"
+            />
+          </div>
+          <div>
+            <button
+              className="text-customColorButton flex space-x-2 items-center font-bold outline-2 border-2 border-customColorButton rounded-xl p-2 text-sm"
+              id={'selectAddLibrary'}
+              onClick={() => {
+                toggleDropdownLibrary();
+              }}
+            >
+              <BsChevronDown />
+              <span>{buttonText}</span>
+            </button>
+            {dropdownStatesLibrary && (
+              <div className="bg-white rounded-md absolute w-[200px] border-2 py-4 border-customColorButton outline-2 dropdown-content">
+                <div
+                  className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2 py-2"
+                  onClick={() => {
+                    toggleDropdownLibrary();
+                    handleChange();
+                  }}
+                >
+                  Read
+                </div>
+                <div
+                  className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2 py-2"
+                  onClick={() => {
+                    toggleDropdownLibrary();
+                    handleChange();
+                  }}
+                >
+                  Want to Read
+                </div>
+                <div
+                  className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2 py-2"
+                  onClick={() => {
+                    toggleDropdownLibrary();
+                    handleChange();
+                  }}
+                >
+                  Food For Thoughts
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <div className="flex-col m-4 w-9/12 space-y-4 text-customDefaultText">
@@ -210,7 +273,7 @@ const BookDetail = ({data}) => {
                       </li>
                     </div>
                   </div>
-                  {dt.name === 'Cattleya Yu'&&
+                  {dt.name === 'Cattleya Yu' ? 
                     <div className="relative">
                       <button className="text-customColorOrange" onClick={()=>{
                         toggleDropdown(index)}}>
@@ -225,7 +288,20 @@ const BookDetail = ({data}) => {
                           <div className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2" >Edit</div>
                         </div>
                       )}
-                    </div>
+                    </div> : 
+                    <div className="relative">
+                    <button className="text-customColorOrange" onClick={()=>{
+                      toggleDropdown(index)}}>
+                      <BsThreeDotsVertical/>
+                    </button>
+                    {dropdownStates[index] && (
+                      <div className="bg-white rounded-md absolute w-[140px] border-2 py-4 border-black outline-2 dropdown-content right-0">
+                        <div className="hover:bg-customColorOrange hover:text-white cursor-pointer px-2" onClick={()=>{
+                          toggleDropdown(index)
+                        }} >Report</div>
+                      </div>
+                    )}
+                  </div>
                   }
                 </div>
                 <div className="mt-8 text-sm text-justify">
