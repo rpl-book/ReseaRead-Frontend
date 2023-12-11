@@ -1,9 +1,11 @@
 import "./Line.css";
 
-const Line = ({ width, height, color, }) => {
+const Line = ({ width, height, color }) => {
   return (
     <div className="line">
-      <div style={{ width: width, height: height, backgroundColor: color }}></div>
+      <div
+        style={{ width: width, height: height, backgroundColor: color }}
+      ></div>
     </div>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './AddToLibraryButton.css';
+import React, { useState } from "react";
+import "./AddToLibraryButton.css";
 
 const options = [
-  { key: 'reading', label: 'Reading' },
-  { key: 'wantToRead', label: 'Want to Read' },
-  { key: 'foodForThoughts', label: 'Food for Thoughts' },
+  { key: "reading", label: "Reading" },
+  { key: "wantToRead", label: "Want to Read" },
+  { key: "foodForThoughts", label: "Food for Thoughts" },
 ];
 
 function AddToLibraryButton() {
@@ -24,7 +24,7 @@ function AddToLibraryButton() {
     <div className="App">
       <div className="container">
         <button onClick={handleButtonClick}>
-          {selectedOption ? selectedOption.label : 'Add to Library'}
+          {selectedOption ? selectedOption.label : "Add to Library"}
         </button>
         {showDropdown && (
           <div className="dropdown-content">
@@ -33,8 +33,8 @@ function AddToLibraryButton() {
                 key={option.key}
                 onClick={() => handleOptionClick(option)}
                 style={{
-                  backgroundColor: option === selectedOption ? '#DA5E42' : '',
-                  color: option === selectedOption ? 'white' : '',
+                  backgroundColor: option === selectedOption ? "#DA5E42" : "",
+                  color: option === selectedOption ? "white" : "",
                 }}
               >
                 {option.label}

@@ -1,5 +1,5 @@
 import "./Pagination.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Pagination = ({ totalItems, itemsPerPage }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -12,14 +12,17 @@ const Pagination = ({ totalItems, itemsPerPage }) => {
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
-    const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    const startPage = Math.max(
+      1,
+      currentPage - Math.floor(maxVisiblePages / 2)
+    );
     const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
     for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(
         <li
           key={i}
-          className={i === currentPage ? 'active' : ''}
+          className={i === currentPage ? "active" : ""}
           onClick={() => handlePageChange(i)}
         >
           {i}
@@ -41,12 +44,18 @@ const Pagination = ({ totalItems, itemsPerPage }) => {
   return (
     <div className="pagination">
       <ul>
-        <li className={currentPage === 1 ? 'disabled' : ''} onClick={handlePrevClick}>
+        <li
+          className={currentPage === 1 ? "disabled" : ""}
+          onClick={handlePrevClick}
+        >
           <p>Prev</p>
         </li>
         {renderPageNumbers()}
-        <li className={currentPage === totalPages ? 'disabled' : ''} onClick={handleNextClick}>
-            <p>Next</p>
+        <li
+          className={currentPage === totalPages ? "disabled" : ""}
+          onClick={handleNextClick}
+        >
+          <p>Next</p>
         </li>
       </ul>
     </div>

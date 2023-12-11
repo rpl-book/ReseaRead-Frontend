@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./Checkbox.css";
 
-const Checkbox = () => {
+const CheckBox = () => {
   const [isChecked, setChecked] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -11,15 +11,16 @@ const Checkbox = () => {
   return (
     <div checkbox-content>
       <label>
-        <input 
+        <input
           className="mr-2"
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckboxChange}
-        />Post To My Feeds
+        />
+        Post To My Feeds
       </label>
     </div>
   );
 };
 
-export default Checkbox;
+export default CheckBox;

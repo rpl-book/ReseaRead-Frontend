@@ -1,7 +1,7 @@
 import "./ReadingProgress.css";
 import { PPage } from "../PText";
 
-const ReadingProgress = ({currentPage, totalPage}) => {
+const ReadingProgress = ({ currentPage, totalPage }) => {
   return (
     <div>
       <div className="progress-base"></div>

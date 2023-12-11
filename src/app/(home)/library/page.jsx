@@ -1,13 +1,13 @@
 "use client";
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
 import { MdOutlineSort } from "react-icons/md";
 import { CiCirclePlus } from "react-icons/ci";
-import ReadingListMenu from '../../components/ReadingListMenu'; 
-import LibraryTable from '../../components/LibraryTable'; 
-import Modal from '../modal-addbook/page'; 
+import ReadingListMenu from "@/components/ReadinglistMenu";
+import LibraryTable from "@/components/LibraryTable";
+import Modal from "../modal-addbook/page";
 import "./library.css";
 
 const library = () => {
@@ -28,20 +28,28 @@ const library = () => {
           <h3>LIBRARY</h3>
         </div>
         <div className="basis-1/4 library-tools">
-          <button><CiSearch /></button>
-          <button><CiFilter /></button>
-          <button><MdOutlineSort /></button>
-          <button onClick={openModal}><CiCirclePlus /></button>
+          <button>
+            <CiSearch />
+          </button>
+          <button>
+            <CiFilter />
+          </button>
+          <button>
+            <MdOutlineSort />
+          </button>
+          <button onClick={openModal}>
+            <CiCirclePlus />
+          </button>
         </div>
       </div>
-      
+
       <div className="flex">
         <div className="mt-10">
-          <ReadingListMenu/>
+          <ReadingListMenu />
         </div>
 
-        <div className="mt-10 ml-10">        
-          <LibraryTable/>     
+        <div className="mt-10 ml-10">
+          <LibraryTable />
         </div>
       </div>
 

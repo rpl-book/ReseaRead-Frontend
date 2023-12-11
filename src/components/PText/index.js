@@ -1,8 +1,8 @@
 import React from "react";
 import "./PText.css";
 
-const PTitle = ({ bookTitle, size, linktobook}) => {
-  const fontSize = size ? `${size}px` : 'inherit';
+const PTitle = ({ bookTitle, size, linktobook }) => {
+  const fontSize = size ? `${size}px` : "inherit";
 
   return (
     <div>
@@ -13,9 +13,7 @@ const PTitle = ({ bookTitle, size, linktobook}) => {
   );
 };
 
-
-const PSTitle = ({bookTitle, linktobook}) => {
-
+const PSTitle = ({ bookTitle, linktobook }) => {
   return (
     <div>
       <p className="ps-title">
@@ -25,9 +23,8 @@ const PSTitle = ({bookTitle, linktobook}) => {
   );
 };
 
-
 const PAuthor = ({ bookAuthor, size, linktoauthor }) => {
-  const fontSize = size ? `${size}px` : 'inherit';
+  const fontSize = size ? `${size}px` : "inherit";
 
   return (
     <div>
@@ -38,9 +35,7 @@ const PAuthor = ({ bookAuthor, size, linktoauthor }) => {
   );
 };
 
-
-const PSAuthor = ({bookAuthor, linktoauthor}) => {
-
+const PSAuthor = ({ bookAuthor, linktoauthor }) => {
   return (
     <div>
       <p className="ps-author">
@@ -53,7 +48,9 @@ const PSAuthor = ({bookAuthor, linktoauthor}) => {
 const PPage = ({ currentPage, totalPage }) => {
   return (
     <div>
-      <p className="p-page">Page {currentPage}/{totalPage}</p>
+      <p className="p-page">
+        Page {currentPage}/{totalPage}
+      </p>
     </div>
   );
 };
@@ -66,8 +63,7 @@ const PRate = ({ rate }) => {
   );
 };
 
-
-const PDesc = ({desc}) => {
+const PDesc = ({ desc }) => {
   return (
     <div>
       <p className="p-desc">{desc}</p>
@@ -75,18 +71,29 @@ const PDesc = ({desc}) => {
   );
 };
 
-const PTag = ({tag1, route1, tag2, route2, tag3, route3, tag4, route4, tag5, route5}) => {
+const PTag = ({
+  tag1,
+  route1,
+  tag2,
+  route2,
+  tag3,
+  route3,
+  tag4,
+  route4,
+  tag5,
+  route5,
+}) => {
   return (
     <div>
       <p className="p-tag">
-        <a href={route1}>{tag1}</a> 
-        <a href={route2}>{tag2}</a> 
-        <a href={route3}>{tag3}</a> 
-        <a href={route4}>{tag4}</a> 
+        <a href={route1}>{tag1}</a>
+        <a href={route2}>{tag2}</a>
+        <a href={route3}>{tag3}</a>
+        <a href={route4}>{tag4}</a>
         <a href={route5}>{tag5}</a>
       </p>
     </div>
   );
 };
 
-export { PTitle, PSTitle, PSAuthor, PAuthor, PPage, PDesc, PRate, PTag};
+export { PTitle, PSTitle, PSAuthor, PAuthor, PPage, PDesc, PRate, PTag };

@@ -1,20 +1,12 @@
-import FeaturedBook from "@/components/FeaturedBook";
-import ContinueReading from "@/components/ContinueReading/";
-import NewRelease from "@/components/NewRelease/";
-import TopPicks from "@/components/TopPicks/";
+"use client";
+import RegisterPage from "./register/page";
 
-
-const Home = () => {
+const MainApp = () => {
   return (
     <main>
-      <div className="container mx-auto max-w-screen-lg">
-        <FeaturedBook/>
-        <ContinueReading/>
-        <NewRelease/>
-        <TopPicks/>
-      </div>
+      <RegisterPage />
     </main>
   );
 };
 
-export default Home;
+export default MainApp;

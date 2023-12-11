@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./ModalReviewTextbox.css";
 
 const ExpandingTextarea = ({ handleInputChange, text: initialText }) => {
-  const [internalText, setInternalText] = useState('');
+  const [internalText, setInternalText] = useState("");
 
   const handleInputChangeInternal = (event) => {
     setInternalText(event.target.value);
@@ -11,8 +11,8 @@ const ExpandingTextarea = ({ handleInputChange, text: initialText }) => {
   };
 
   const autoExpand = () => {
-    const textarea = document.getElementById('myTextarea');
-    textarea.style.height = 'auto';
+    const textarea = document.getElementById("myTextarea");
+    textarea.style.height = "auto";
     textarea.style.height = `${Math.min(textarea.scrollHeight, 200)}px`;
   };
 
@@ -20,7 +20,7 @@ const ExpandingTextarea = ({ handleInputChange, text: initialText }) => {
     <div>
       <label>What do you think?</label>
       <textarea
-        className='mt-3'
+        className="mt-3"
         id="myTextarea"
         value={internalText}
         onChange={handleInputChangeInternal}

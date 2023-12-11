@@ -6,9 +6,17 @@ const SearchBar = ({ targetPage }) => {
   return (
     <div className="">
       <form className="searchbar flex">
-        <input type="text" placeholder="Search for.." className="search-input" />
-        <div className='btn-search'>
-          <ButtonIcon iconTag={<CiSearch />} fontSize="20px" targetPage={targetPage} />
+        <input
+          type="text"
+          placeholder="Search for.."
+          className="search-input"
+        />
+        <div className="btn-search">
+          <ButtonIcon
+            iconTag={<CiSearch />}
+            fontSize="20px"
+            targetPage={targetPage}
+          />
         </div>
       </form>
     </div>
