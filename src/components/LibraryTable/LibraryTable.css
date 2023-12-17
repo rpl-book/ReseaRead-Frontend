@@ -1,17 +1,19 @@
-table img{
-    width: 30px;
-    height: 30px;
+table img {
+  width: 30px;
+  height: 30px;
 }
 
 .lib-tools {
-    font-size: 25px;
+  font-size: 25px;
 }
 
-.lib-tools a:hover, .lib-tools a:focus, .lib-tools a:active{
-    text-decoration: none;
-    color: #DA5E42;
-    border-radius: 5px;
-    margin-right: 5px;
+.lib-tools a:hover,
+.lib-tools a:focus,
+.lib-tools a:active {
+  text-decoration: none;
+  color: #da5e42;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
 .table-container {
@@ -24,47 +26,45 @@ table img{
   overflow-y: auto;
 }
 
-.table-header{
+.table-header {
   font-size: 16px;
   font-weight: bold;
   margin-top: 5px;
   text-align: center;
 }
 
-.header-line{
+.header-line {
   height: 1px;
   width: 100%;
   background-color: black;
   margin-top: 15px;
   margin-bottom: 13px;
-
 }
 
-.th1{
+.th1 {
   width: 80.22px;
 }
 
-
-.th2{
+.th2 {
   width: 143.67px;
 }
 
-.th3{
+.th3 {
   width: 143.67px;
 }
 
-.th7{
+.th7 {
   width: 93.67px;
 }
 
-.th4{
+.th4 {
   width: 129.43px;
 }
 
-.th5{
+.th5 {
   width: 108.61px;
 }
 
-.th6{
+.th6 {
   width: 108.82px;
 }

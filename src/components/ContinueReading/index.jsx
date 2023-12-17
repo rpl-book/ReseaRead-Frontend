@@ -2,6 +2,7 @@ import SubsectionText from "../SubsectionText";
 import ConReadingCard from "../ConReadingCard";
 import Button from "../Button";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const ContinueReading = ({ userId, API_URL }) => {
   const [userReads, setUserReads] = useState([]);
@@ -10,7 +11,7 @@ const ContinueReading = ({ userId, API_URL }) => {
     const fetchUserLibrary = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/library/${userId}`);
-        setUserReads(response.data.libraryBooks.libBooks);
+        setUserReads(response.data.libraryBooks);
       } catch (err) {
         console.log(err);
       }
@@ -25,27 +26,21 @@ const ContinueReading = ({ userId, API_URL }) => {
         <SubsectionText title="Continue Reading" />
 
         <div className="grid grid-cols-3 gap-4">
-          <div className="mt-10">
-            <ConReadingCard
-              bookTitle={"After Live"}
-              bookAuthor={"Abdul Razak Gurnah"}
-              bookImg={"/cr-book1.jpg"}
-              currentPage={"140"}
-              totalPage={"288"}
-            />
-          </div>
-
-          {userReads.map((book) => (
-            <div key={book.bookId} className="mt-10">
-              <ConReadingCard
-                bookTitle={book.title}
-                bookAuthor={book.author}
-                bookImg={book.imageUrl}
-                currentPage={book.currentPage}
-                totalPage={book.totalPage}
-              />
-            </div>
-          ))}
+          {userReads ? (
+            userReads.map((userBooks) => (
+              <div key={userBooks.bookId} className="mt-10">
+                <ConReadingCard
+                  bookTitle={userBooks.Book.title}
+                  bookAuthor={userBooks.Book.author}
+                  bookImg={userBooks.Book.coverImage}
+                  currentPage={userBooks.pageProgress}
+                  totalPage={userBooks.Book.page}
+                />
+              </div>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
 
         <div className="flex justify-center items-center mt-20 mb-20">

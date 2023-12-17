@@ -6,16 +6,13 @@ import Button from "../Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
-const FeaturedBook = () => {
+const FeaturedBook = ({ API_URL }) => {
   const [randomBook, setRandomBook] = useState(null);
 
   useEffect(() => {
     const fetchRandomBook = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/book/books`);
-        console.log(response);
         const bookData = response.data.payload.bookData;
         const randomIndex = Math.floor(Math.random() * bookData.length);
         const selectedBook = bookData[randomIndex];
@@ -27,7 +24,7 @@ const FeaturedBook = () => {
     };
 
     fetchRandomBook();
-  }, []);
+  }, [API_URL]);
 
   return (
     <div>

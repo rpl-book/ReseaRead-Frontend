@@ -41,10 +41,16 @@ const Home = () => {
   return (
     <main>
       <div className="container mx-auto max-w-screen-lg">
-        <FeaturedBook />
-        <ContinueReading user={userId} API_URL={API_URL} />
-        <NewRelease />
-        <TopPicks />
+        {userId ? (
+          <>
+            <FeaturedBook API_URL={API_URL} />
+            <ContinueReading userId={userId} API_URL={API_URL} />
+            <NewRelease />
+            <TopPicks />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </main>
   );

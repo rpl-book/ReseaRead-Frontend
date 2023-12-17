@@ -18,7 +18,7 @@ const login = () => {
       const token = await AsyncLocalStorage.getItem("token");
 
       if (token) {
-        router.push("(home)/homepage");
+        router.push("/homepage");
       }
     };
 

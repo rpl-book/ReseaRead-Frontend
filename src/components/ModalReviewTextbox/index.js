@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./ModalReviewTextbox.css";
 
-const ExpandingTextarea = ({ handleInputChange, text: initialText }) => {
+const ModalReviewTextbox = ({ handleInputChange }) => {
   const [internalText, setInternalText] = useState("");
 
   const handleInputChangeInternal = (event) => {
     setInternalText(event.target.value);
     autoExpand();
-    handleInputChange(event);
+    handleInputChange(event.target.value);
   };
 
   const autoExpand = () => {
@@ -31,4 +31,4 @@ const ExpandingTextarea = ({ handleInputChange, text: initialText }) => {
   );
 };
 
-export default ExpandingTextarea;
+export default ModalReviewTextbox;

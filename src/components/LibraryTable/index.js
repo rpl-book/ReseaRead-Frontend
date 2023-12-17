@@ -1,7 +1,24 @@
 import "./LibraryTable.css";
 import NewTableRow from "../NewTableRow";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const LibraryTable = ({}) => {
+const LibraryTable = ({ userId, API_URL }) => {
+  const [userLibrary, setUserLibrary] = useState([]);
+
+  useEffect(() => {
+    const fetchUserLibrary = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/library/${userId}`);
+        setUserLibrary(response.data.libraryBooks);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchUserLibrary();
+  }, [userId, API_URL]);
+
   return (
     <div>
       <div className="flex flex-col">
@@ -21,87 +38,23 @@ const LibraryTable = ({}) => {
             <div className="overflow-hidden">
               <table className="min-w-full divide-y divide-gray-900">
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  <NewTableRow
-                    cover={"/cr-book1.jpg"}
-                    bookTitle={"After Lives"}
-                    bookAuthor={"Abdul Razak Gurnah"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"140"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book3.jpeg"}
-                    bookTitle={"Vanishing Half"}
-                    bookAuthor={"Britt Benett"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book2.jpg"}
-                    bookTitle={"The Poppy War"}
-                    bookAuthor={"R. F. Kuang"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book1.jpg"}
-                    bookTitle={"After Lives"}
-                    bookAuthor={"Abdul Razak Gurnah"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"140"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book3.jpeg"}
-                    bookTitle={"Vanishing Half"}
-                    bookAuthor={"Britt Benett"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book2.jpg"}
-                    bookTitle={"The Poppy War"}
-                    bookAuthor={"R. F. Kuang"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book1.jpg"}
-                    bookTitle={"After Lives"}
-                    bookAuthor={"Abdul Razak Gurnah"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"140"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book3.jpeg"}
-                    bookTitle={"Vanishing Half"}
-                    bookAuthor={"Britt Benett"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
-                  <NewTableRow
-                    cover={"/cr-book2.jpg"}
-                    bookTitle={"The Poppy War"}
-                    bookAuthor={"R. F. Kuang"}
-                    dateAdded={"2023/10/15"}
-                    readingStatus={"Reading"}
-                    currentPage={"103"}
-                    totalPage={"288"}
-                  />
+                  {userLibrary ? (
+                    userLibrary.map((userBooks) => (
+                      <NewTableRow
+                        cover={userBooks.Book.coverImage}
+                        bookTitle={userBooks.Book.title}
+                        bookAuthor={userBooks.Book.author}
+                        dateAdded={new Date(
+                          userBooks.dateAdded
+                        ).toLocaleDateString("id")}
+                        readingStatus={userBooks.readStatus}
+                        currentPage={userBooks.pageProgress}
+                        totalPage={userBooks.Book.page}
+                      />
+                    ))
+                  ) : (
+                    <p>Loading...</p>
+                  )}
                 </tbody>
               </table>
             </div>

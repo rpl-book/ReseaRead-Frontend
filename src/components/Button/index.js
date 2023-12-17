@@ -8,11 +8,15 @@ const Button = ({
   color,
   targetPage,
   width,
+  handleButton,
 }) => {
   return (
     <div className="button">
       <Link href={targetPage} legacyBehavior>
-        <a style={{ color, fontSize: fontSize, width: width }}>
+        <a
+          style={{ color, fontSize: fontSize, width: width }}
+          onClick={handleButton}
+        >
           {iconTag}
           {buttonName && <span>{buttonName}</span>}
         </a>
