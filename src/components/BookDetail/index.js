@@ -20,7 +20,7 @@ const BookDetail = ({data}) => {
   const monthName = monthNames[date.getMonth()];
   const formattedDate = `First published ${monthName}, ${date.getFullYear()}`;
 
-  const reviewData = [
+  const initReviewData = [
     {
       id:1,
       name:'Cattleya Yu',
@@ -46,7 +46,48 @@ const BookDetail = ({data}) => {
       rateData:"4 stars, rounded down. This one’s a fictionalized take on ol' ted bundy's 70's killing spree (the unnamed “Defendant” and why does our culture glorify those POS’s?) and it focuses on his victims, esp. at the FL sorority house. Found it a rather slow burner, but very, very interesting & well-written and I really appreciated the historical perspective on how women were just dismissed by the police back then (and sadly today as well)"
     }
   ]
-  const [reviews,setReviews] = useState(reviewData)
+
+  // const reviewData = []
+  const [reviewData,setReviewData] = useState(null)
+  const [reviews,setReviews] = useState(initReviewData)
+  
+  const handlePost = () =>{
+    if(reviewData){
+      const currentDate = new Date()
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth() + 1; // Note: Month is zero-based, so we add 1
+      const day = currentDate.getDate();
+      const hours = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
+      const seconds = currentDate.getSeconds();
+      // {
+      //   id:1,
+      //   name:'Cattleya Yu',
+      //   imgSrc:'/prof-pic1.jpg',
+      //   rate:4,
+      //   followers:91,
+      //   following:15,
+      //   dateRate:'2023-10-15',
+      //   likes:4,
+      //   comments:1,
+      //   rateData:"4 stars, rounded down. This one’s a fictionalized take on ol' ted bundy's 70's killing spree (the unnamed “Defendant” and why does our culture glorify those POS’s?) and it focuses on his victims, esp. at the FL sorority house. Found it a rather slow burner, but very, very interesting & well-written and I really appreciated the historical perspective on how women were just dismissed by the police back then (and sadly today as well)"
+      // },
+      const post = {
+        id:Math.round(Math.random(5)*100),
+        imgSrc:'/prof-pic1.jpg',
+        name:'Cattleya Yu',
+        followers:91,
+        following:15,
+        rateData:reviewData,
+        likes:0,
+        comments:0,
+        dateRate:`${year}-${month}-${day}`,
+        // rateData:"4 stars, rounded down. This one’s a fictionalized take on ol' ted bundy's 70's killing spree (the unnamed “Defendant” and why does our culture glorify those POS’s?) and it focuses on his victims, esp. at the FL sorority house. Found it a rather slow burner, but very, very interesting & well-written and I really appreciated the historical perspective on how women were just dismissed by the police back then (and sadly today as well)"
+      }
+      setReviews(prevData => [...prevData, post])
+      setReviewData('')
+    }
+  }
 
   const [deleteIndex, setDeleteIndex] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,6 +127,11 @@ const BookDetail = ({data}) => {
     element.className = 'text-white flex space-x-2 items-center font-bold bg-customColorButton rounded-xl p-2 text-sm';
     
   };
+
+  const handleChangePost = (event) => {
+    setReviewData(event.target.value)
+  }
+
   const deleteItem = () => {
     if (deleteIndex !== null) {
       setReviews((prevData) => 
@@ -231,6 +277,29 @@ const BookDetail = ({data}) => {
         </div>
         {showReview &&
         <div className="">
+          <div className="flex justify-between space-x-4 h-[200px]">
+            {/* <div className="rounded-full space-x-4">
+              <Image
+              className="rounded-full"
+              src={data.imgSrc}
+              height={60}
+              width={60}
+              />
+            </div> */}
+              {/* <div className="text-customDefaultText text-base h-full w-full"> */}
+                <textarea className="w-full h-full p-4 resize-none outline-none text-customDefaultText text-base" placeholder="Write your thoughts ..." value={reviewData} onChange={handleChangePost}/>
+              {/* </div> */}
+          </div> 
+          <div className="flex justify-end items-center m-8">
+            {/* <div className="flex justify-between items-center w-2/12 text-customColorOrange text-xl">
+              <BsCamera className="cursor-pointer"/>
+              <BsAt className="cursor-pointer"/>
+              <IoMdAttach className="cursor-pointer"/>
+            </div> */}
+            <div className="flex justify-end" onClick={()=>handlePost()}>
+              <Button buttonName={'Write Review'} targetPage={'#'} color={'white'} fontSize={12} />
+            </div>
+          </div>
           {reviews && reviews.map((dt,index)=>(
             <div key={"review_"+index} className="flex h-[300px] space-x-8">
               <div className="flex-col items-center justify-start font-bold w-3/12 flex space-y-2">
@@ -256,22 +325,10 @@ const BookDetail = ({data}) => {
                 </div>
               </div>
               <div className="flex-col items-start justify-start font-bold w-9/12 flex">
-                <div className="flex w-full items-center justify-between mt-8">
-                  <div className="flex items-center text-2xl">
-                    {Array.from({ length: 5 }, (_, idx) => (
-                      idx < Math.round(dt.rate) ? 
-                      <span className="text-customColorOrange">
-                        <BsStarFill/>
-                      </span> : 
-                      <span className="text-customColorGray">
-                        <BsStar/>
-                      </span> 
-                    ))}
-                    <div className="text-xs">
-                      <li className="ml-4">
-                        <span>{dt.dateRate}</span>
-                      </li>
-                    </div>
+                
+                <div className="mt-8 text-sm text-justify flex justify-end w-full">
+                  <div className="w-full">
+                    {dt.rateData}
                   </div>
                   {dt.name === 'Cattleya Yu' ? 
                     <div className="relative">
@@ -303,9 +360,6 @@ const BookDetail = ({data}) => {
                     )}
                   </div>
                   }
-                </div>
-                <div className="mt-8 text-sm text-justify">
-                  {dt.rateData}
                 </div>
                 <div className="flex items-center space-x-4 mt-4 text-customColorGray text-sm">
                   <button className="flex items-center space-x-2 ">
