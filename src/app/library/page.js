@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { CiSearch } from "react-icons/ci";
 import { CiFilter } from "react-icons/ci";
 import { MdOutlineSort } from "react-icons/md";
 import { CiCirclePlus } from "react-icons/ci";
 import ReadingListMenu from '../../components/ReadingListMenu'; 
 import LibraryTable from '../../components/LibraryTable'; 
-import Modal from '../modal-addbook/page'; 
+import Modal from '../modal-addbook/page';
 import "./library.css";
 
 const library = () => {
+
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {

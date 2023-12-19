@@ -8,8 +8,8 @@
 
 .library-tools {
     display: flex;
-    gap: 20px; /* Jarak antara ikon */
-    justify-content: flex-end; /* Konten menjadi rata kanan */
+    gap: 20px; 
+    justify-content: flex-end; 
 }
 
 .library-tools button{

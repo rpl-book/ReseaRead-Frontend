@@ -29,7 +29,6 @@ body.active-modal {
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1.4;
-    background: #F7F6F4;
     padding: 20px;
     border-radius: 10px;
     width: 850px;
@@ -37,6 +36,9 @@ body.active-modal {
     font-size: 16px;
     min-height: 0;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
