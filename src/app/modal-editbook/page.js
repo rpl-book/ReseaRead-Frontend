@@ -1,7 +1,7 @@
 "use client";
 import Button from '../../components/Button'; 
 import Checkbox from '../../components/Checkbox';
-import ModalAddNewBookForm from '../../components/ModalAddNewBookForm';
+import ModalAddNewBookForm from '../../components/ModalAddNewBookData';
 import "./modal-editbook.css";
 
 const ModalEditBook = ({ closeModalEdit }) => {

@@ -1,30 +1,39 @@
 import React, { useState } from 'react';
-import "./ModalAddNewBookForm4.css";
+import "./ModalAddNewBookData.css";
 import { RxSlash } from "react-icons/rx";
-import Button from '../Button'; 
+import Button from '../Button';
 
-
-const ModalAddNewBookForm4 = ({ closeModal, title, currentPage, totalPage, status: initialStatus }) => {
+const ModalAddNewBookData = ({ closeModal, img, title, author, currentPage, totalPage, status: initialStatus }) => {
   const [InputTitle, setTitle] = useState(title || '');
+  const [InputAuthor, setAuthor] = useState(author || '');
+  const [InputImg, setImg] = useState(img || '');
   const [InputCurrentPage, setCurrentPage] = useState(currentPage || '');
   const [InputTotalPage, setTotalPage] = useState(totalPage || '');
-  const [InputStatus, setStatus] = useState(initialStatus || ''); 
-                                  
+  const [InputStatus, setStatus] = useState(initialStatus || '');
+
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
+  const handleImgChange = (e) => {
+    setImg(e.target.value);
+  };
+
+  const handleAuthorChange = (e) => {
+    setAuthor(e.target.value);
+  };
+
   const handleCurrentPageChange = (e) => {
     setCurrentPage(e.target.value);
-  };  
+  };
 
   const handleTotalPageChange = (e) => {
     setTotalPage(e.target.value);
-  };  
+  };
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
-  };  
+  };
 
   return (
     <div className="ml-8">
@@ -32,23 +41,33 @@ const ModalAddNewBookForm4 = ({ closeModal, title, currentPage, totalPage, statu
         <p className="modal-header mt-3">New Book</p>
       </div>
 
-      <div className="modal-form flex"> 
+      <div className="modal-form flex">
         <div className="book-imgg mt-7">
           <img src={"/img-placeholder.png"} alt="Image Placeholder" />
         </div>
         <div className="book-desc mb-5 ml-8">
           <div className="book-desc-1">
             <label className="block">Title</label>
-            <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="Title" value={InputTitle} onChange={handleTitleChange}/>
+            <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="Title" value={InputTitle} onChange={handleTitleChange} />
+          </div>
+
+          <div className="book-desc-1">
+            <label className="block">Author</label>
+            <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="Author" value={InputAuthor} onChange={handleAuthorChange} />
           </div>
 
           <div className="book-desc-1">
             <label className="block">Page</label>
             <div className="flex items-center input-page-date">
-              <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="000" value={InputCurrentPage} onChange={handleCurrentPageChange}/>
-              <div><RxSlash/></div>
-              <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="000" value={InputTotalPage} onChange={handleTotalPageChange}/>
+              <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="000" value={InputCurrentPage} onChange={handleCurrentPageChange} />
+              <div><RxSlash /></div>
+              <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="000" value={InputTotalPage} onChange={handleTotalPageChange} />
             </div>
+          </div>
+
+          <div className="book-desc-1">
+            <label className="block">Cover URL</label>
+            <input className="focus:outline-none focus:shadow-outline" type="text" placeholder="Cover URL" value={InputImg} onChange={handleImgChange} />
           </div>
 
           <div className="book-desc-1">
@@ -80,13 +99,13 @@ const ModalAddNewBookForm4 = ({ closeModal, title, currentPage, totalPage, statu
       </div>
 
       <div className='mod-btnn'>
-        <Button buttonName="Save" color="white" width={70} targetPage="#"/>
+        <Button buttonName="Save" color="white" width={70} targetPage="#" />
         <button onClick={closeModal}>
-          <Button buttonName="Discard" color="white" targetPage="/library" width={70}/>
+          <Button buttonName="Discard" color="white" targetPage="/library" width={70} />
         </button>
       </div>
     </div>
   );
 };
 
-export default ModalAddNewBookForm4;
+export default ModalAddNewBookData;

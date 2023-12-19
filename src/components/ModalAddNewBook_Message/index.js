@@ -1,11 +1,8 @@
 import React from 'react';
-import ButtonIcon from '../../components/ButtonIcon'; 
 import Button from '../Button';
-import { IoSearch } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
-import "./ModalAddNewBookForm3.css";
+import "./ModalAddNewBook_Message.css";
 
-const ModalAddNewBookForm3 = ({ closeModal }) => {
+const ModalAddNewBook_Message = ({ closeModal }) => {
   return (
     <div>
       <h3 className="ml-4 mt-6" style={{ textAlign: 'center' }}>Oops! It seems we haven't added that book to our database yet.</h3>
@@ -21,4 +18,4 @@ const ModalAddNewBookForm3 = ({ closeModal }) => {
   );
 };
 
-export default ModalAddNewBookForm3;
+export default ModalAddNewBook_Message;

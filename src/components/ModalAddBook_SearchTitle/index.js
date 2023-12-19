@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import "./ModalAddNewBookFormm2.css";
+import "./ModalAddBook_SearchTitle.css";
 import ButtonIcon from '../../components/ButtonIcon'; 
 import Button from '../Button';
 import { IoSearch } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
-const ModalAddNewBookForm2 = ({ title, closeModal }) => {
+const ModalAddBook_SearchTitle = ({ title, closeModal }) => {
   const [InputTitle, setTitle] = useState(title || '');
 
   const handleTitleChange = (e) => {
@@ -36,4 +36,4 @@ const ModalAddNewBookForm2 = ({ title, closeModal }) => {
   );
 };
 
-export default ModalAddNewBookForm2;
+export default ModalAddBook_SearchTitle;
