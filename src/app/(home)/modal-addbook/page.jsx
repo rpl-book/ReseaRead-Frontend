@@ -21,7 +21,7 @@ const Modal = ({ closeModal, userId, API_URL }) => {
 
     try {
       const bookModelResponse = await axios.get(
-        `${API_URL}/api/book/books/one`,
+        `${API_URL}/api/book/books/one/`,
         {
           params: { bookTitle: title },
         }
@@ -84,7 +84,7 @@ const Modal = ({ closeModal, userId, API_URL }) => {
                   />
                 ) : (
                   <Button
-                    buttonName="Cancel"
+                    buttonName="Save"
                     color="white"
                     targetPage="/library"
                   />

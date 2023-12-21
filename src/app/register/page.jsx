@@ -13,7 +13,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
-  /*
+  /* After Implement Logout 
   useEffect(() => {
     const checkToken = async () => {
       const token = await AsyncLocalStorage.getItem("token");

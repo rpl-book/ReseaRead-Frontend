@@ -3,23 +3,14 @@ import { PSTitle, PSAuthor, PRate } from "../PText";
 import StarRating from "../StarRating";
 import BookTag from "../BookTag";
 
-const TopPicks = ({
+const TopPicksCard = ({
+  bookId,
+  authorProfile,
   bookTitle,
   bookAuthor,
   bookRating,
   bookImg,
-  linktobook,
-  linktoauthor,
-  tag1,
-  route1,
-  tag2,
-  route2,
-  tag3,
-  route3,
-  tag4,
-  route4,
-  tag5,
-  route5,
+  genres,
 }) => {
   return (
     <div className="tp-catalog">
@@ -28,8 +19,8 @@ const TopPicks = ({
       </div>
       <div className="tp-info">
         <div className="mt-6">
-          <PSTitle bookTitle={bookTitle} linktobook={linktobook} />
-          <PSAuthor bookAuthor={bookAuthor} linktoauthor={linktoauthor} />
+          <PSTitle bookTitle={bookTitle} linkToBook={bookId} />
+          <PSAuthor bookAuthor={bookAuthor} linkToAuthor={authorProfile} />
         </div>
         <div className="flex">
           <StarRating />
@@ -38,22 +29,18 @@ const TopPicks = ({
           </div>
         </div>
         <div>
-          <BookTag
-            tag1={tag1}
-            route1={route1}
-            tag2={tag2}
-            route2={route2}
-            tag3={tag3}
-            route3={route3}
-            tag4={tag4}
-            route4={route4}
-            tag5={tag5}
-            route5={route5}
-          />
+          {genres && (
+            <BookTag
+              tags={genres.map((tag, index) => ({
+                name: tag,
+                route: `#${index + 1}`,
+              }))}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default TopPicks;
+export default TopPicksCard;

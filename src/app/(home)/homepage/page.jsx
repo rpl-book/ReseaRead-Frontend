@@ -3,10 +3,10 @@ import FeaturedBook from "@/components/FeaturedBook";
 import ContinueReading from "@/components/ContinueReading/";
 import NewRelease from "@/components/NewRelease/";
 import TopPicks from "@/components/TopPicks/";
-import AsyncLocalStorage from "@createnextapp/async-local-storage";
-import { getUserIdFromToken } from "@/app/utils/authToken";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { decodeTokenAndSetUserId } from "@/app/utils/decodeTokenAndSetUserId";
+import ModalLoading from "@/app/(home)/modal-loadingpage/page";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -16,22 +16,12 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUserInfo = async () => {
-      try {
-        const token = await AsyncLocalStorage.getItem("token");
+      const decodedUserId = await decodeTokenAndSetUserId();
 
-        if (token) {
-          const decodedUserId = getUserIdFromToken(token);
-
-          if (decodedUserId) {
-            setUserId(decodedUserId);
-          } else {
-            console.error("failed to decode User ID from token.");
-          }
-        } else {
-          router.push("/login");
-        }
-      } catch (err) {
-        console.error("Error fetching User Information", err);
+      if (decodedUserId) {
+        setUserId(decodedUserId);
+      } else {
+        router.push("/login");
       }
     };
 
@@ -46,10 +36,10 @@ const Home = () => {
             <FeaturedBook API_URL={API_URL} />
             <ContinueReading userId={userId} API_URL={API_URL} />
             <NewRelease />
-            <TopPicks />
+            <TopPicks API_URL={API_URL} />
           </>
         ) : (
-          <p>Loading...</p>
+          <ModalLoading />
         )}
       </div>
     </main>

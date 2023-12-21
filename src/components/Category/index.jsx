@@ -22,7 +22,7 @@ const Category = ({ data, detail = null }) => {
             <div className="mt-4 relative h-[214px] w-full rounded-xl">
               <Image
                 className="rounded-xl "
-                src={dt.imgSrc}
+                src={"/category.png"}
                 alt={dt.name}
                 fill
                 objectFit="cover"

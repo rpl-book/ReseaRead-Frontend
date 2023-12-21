@@ -1,5 +1,6 @@
 import React from "react";
 import "./PText.css";
+import Link from "next/link";
 
 const PTitle = ({ bookTitle, size, linktobook }) => {
   const fontSize = size ? `${size}px` : "inherit";
@@ -13,11 +14,11 @@ const PTitle = ({ bookTitle, size, linktobook }) => {
   );
 };
 
-const PSTitle = ({ bookTitle, linktobook }) => {
+const PSTitle = ({ bookTitle, linkToBook }) => {
   return (
     <div>
       <p className="ps-title">
-        <a href={linktobook}>{bookTitle}</a>
+        <Link href={`/book/${linkToBook}`}>{bookTitle}</Link>
       </p>
     </div>
   );
@@ -71,26 +72,15 @@ const PDesc = ({ desc }) => {
   );
 };
 
-const PTag = ({
-  tag1,
-  route1,
-  tag2,
-  route2,
-  tag3,
-  route3,
-  tag4,
-  route4,
-  tag5,
-  route5,
-}) => {
+const PTag = ({ tags }) => {
   return (
     <div>
       <p className="p-tag">
-        <a href={route1}>{tag1}</a>
-        <a href={route2}>{tag2}</a>
-        <a href={route3}>{tag3}</a>
-        <a href={route4}>{tag4}</a>
-        <a href={route5}>{tag5}</a>
+        {tags.map((tag, index) => (
+          <a key={index} href={tag.route}>
+            {tag.name}
+          </a>
+        ))}
       </p>
     </div>
   );

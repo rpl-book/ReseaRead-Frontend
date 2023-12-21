@@ -34,7 +34,7 @@ const NewTableRow = ({
   };
 
   return (
-    <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+    <tr className="hover:bg-gray-100 dark:hover:bg-gray-200">
       <td className="px-4 py-4">
         <img
           src={cover}

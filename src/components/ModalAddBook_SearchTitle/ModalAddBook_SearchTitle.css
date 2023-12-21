@@ -1,0 +1,26 @@
+.book-desc label {
+  width: 80px;
+  display: block;
+  color: black;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-left: 0;
+  padding: 0;
+}
+
+.book-descc input {
+  color: black;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 3px 5px 5px 10px;
+  width: 687px;
+  margin: 0;
+  margin-right: 30px;
+  margin-top: 10px;
+}
+
+.modal-hedd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

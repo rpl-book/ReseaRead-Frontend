@@ -12,7 +12,7 @@ const login = () => {
   const [password, setPassword] = useState("");
 
   const router = useRouter();
-  /*
+  /* After Implement Logout
   useEffect(() => {
     const checkToken = async () => {
       const token = await AsyncLocalStorage.getItem("token");
@@ -39,6 +39,7 @@ const login = () => {
         email: inputedData.email,
         password: inputedData.password,
       });
+
       if (response.data) {
         await AsyncLocalStorage.setItem("token", response.data.token);
         router.push("/homepage");

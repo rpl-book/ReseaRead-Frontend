@@ -14,7 +14,7 @@ const NavigationBar = () => {
 
         <ul>
           <li className="">
-            <Link href="#">Catalog</Link>
+            <Link href="/discovery">Catalog</Link>
           </li>
 
           <li>

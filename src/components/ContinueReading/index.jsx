@@ -10,7 +10,12 @@ const ContinueReading = ({ userId, API_URL }) => {
   useEffect(() => {
     const fetchUserLibrary = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/library/${userId}`);
+        const response = await axios.get(`${API_URL}/api/library/${userId}`, {
+          params: {
+            page: 1,
+            booksPerPage: 3,
+          },
+        });
         setUserReads(response.data.libraryBooks);
       } catch (err) {
         console.log(err);
@@ -48,7 +53,7 @@ const ContinueReading = ({ userId, API_URL }) => {
             buttonName="See More"
             size="20"
             color="white"
-            targetPage="/"
+            targetPage="/library"
           />
         </div>
       </div>

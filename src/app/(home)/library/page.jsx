@@ -8,9 +8,9 @@ import ReadingListMenu from "@/components/ReadinglistMenu";
 import LibraryTable from "@/components/LibraryTable";
 import Modal from "../modal-addbook/page";
 import "./library.css";
-import { getUserIdFromToken } from "@/app/utils/authToken";
 import { useRouter } from "next/navigation";
-import AsyncLocalStorage from "@createnextapp/async-local-storage";
+import { decodeTokenAndSetUserId } from "@/app/utils/decodeTokenAndSetUserId";
+import ModalLoading from "@/app/(home)/modal-loadingpage/page";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -21,22 +21,12 @@ const library = () => {
 
   useEffect(() => {
     const fetchUserInfo = async () => {
-      try {
-        const token = await AsyncLocalStorage.getItem("token");
+      const decodedUserId = await decodeTokenAndSetUserId();
 
-        if (token) {
-          const decodedUserId = getUserIdFromToken(token);
-
-          if (decodedUserId) {
-            setUserId(decodedUserId);
-          } else {
-            console.error("failed to decode User ID from token.");
-          }
-        } else {
-          router.push("/login");
-        }
-      } catch (err) {
-        console.error("Error fetching User Information", err);
+      if (decodedUserId) {
+        setUserId(decodedUserId);
+      } else {
+        router.push("/login");
       }
     };
 
@@ -90,7 +80,7 @@ const library = () => {
           )}
         </div>
       ) : (
-        <p>Loading...</p>
+        <ModalLoading />
       )}
     </>
   );

@@ -41,6 +41,7 @@ const LibraryTable = ({ userId, API_URL }) => {
                   {userLibrary ? (
                     userLibrary.map((userBooks) => (
                       <NewTableRow
+                        key={userBooks.libraryId}
                         cover={userBooks.Book.coverImage}
                         bookTitle={userBooks.Book.title}
                         bookAuthor={userBooks.Book.author}

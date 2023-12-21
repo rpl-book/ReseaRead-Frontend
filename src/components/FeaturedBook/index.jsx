@@ -5,6 +5,7 @@ import "./FeaturedBook.css";
 import Button from "../Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const FeaturedBook = ({ API_URL }) => {
   const [randomBook, setRandomBook] = useState(null);
@@ -35,7 +36,12 @@ const FeaturedBook = ({ API_URL }) => {
               <img src="/banner-accent.png" alt=""></img>
             </div>
 
-            <h1 className="featured-title font">{randomBook.title}</h1>
+            <Link
+              className="featured-title font"
+              href={`/book/${randomBook.bookId}`}
+            >
+              {randomBook.title}
+            </Link>
             <img
               className="featured-img"
               src={randomBook.coverImage}
@@ -55,7 +61,7 @@ const FeaturedBook = ({ API_URL }) => {
               buttonName=""
               fontSize="30"
               color="white"
-              targetPage="/"
+              targetPage="#"
             />
             <Button
               className="right"
@@ -63,7 +69,7 @@ const FeaturedBook = ({ API_URL }) => {
               buttonName=""
               fontSize="30"
               color="white"
-              targetPage="/"
+              targetPage="#"
             />
           </div>
 
@@ -71,14 +77,14 @@ const FeaturedBook = ({ API_URL }) => {
             <h2 className="featured-author font">{randomBook.author}</h2>
             <div className="featured-desc font">
               <p>{randomBook.description}</p>
-              <div className="button-want-to-read">
+              {/* <div className="button-want-to-read">
                 <Button
                   buttonName="Want To Read"
                   size="20"
                   color="white"
                   targetPage="/"
                 />
-              </div>
+              </div>*/}
             </div>
           </div>
         </>

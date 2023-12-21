@@ -1,5 +1,4 @@
 import Image from "next/image";
-import "./style.css";
 import { BsBell, BsGear } from "react-icons/bs";
 import { CiViewTimeline, CiMail } from "react-icons/ci";
 import { BsThreeDotsVertical } from "react-icons/bs";

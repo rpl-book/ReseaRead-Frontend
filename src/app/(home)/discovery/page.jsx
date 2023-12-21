@@ -1,158 +1,37 @@
 "use client";
-import { useState } from "react";
 import Category from "@/components/Category";
 import PublicReadList from "@/components/PublicReadList";
 import Trending from "@/components/Trending";
 import Button from "@/components/Button";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import AsyncLocalStorage from "@createnextapp/async-local-storage";
+import { getUserIdFromToken } from "@/app/utils/authToken";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const Discovery = () => {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const router = useRouter();
 
   const dataCategory = [
     {
       id: 1,
       name: "Romance",
-      imgSrc: "/category.png",
     },
     {
       id: 2,
       name: "Thriller",
-      imgSrc: "/category.png",
     },
     {
       id: 3,
       name: "Comic",
-      imgSrc: "/category.png",
     },
     {
       id: 4,
       name: "Science",
-      imgSrc: "/category.png",
-    },
-  ];
-
-  const dataTrending = [
-    {
-      id: 1,
-      title: "Better Than The Movies",
-      writer: "Lynn Painter",
-      rating: 4.9,
-      category: "Romance, Citypop",
-      imgSrc: "/trend1.jpg",
-    },
-    {
-      id: 2,
-      title: "Happily Never After",
-      writer: "Lynn Painter",
-      rating: 4.3,
-      category: "Romance, Citypop",
-      imgSrc: "/trend2.jpg",
-    },
-    {
-      id: 3,
-      title: "Love Wager",
-      writer: "Lynn Painter",
-      rating: 4.3,
-      category: "Romance, Citypop",
-      imgSrc: "/trend3.jpg",
-    },
-    {
-      id: 4,
-      title: "Better Than Prom",
-      writer: "Lynn Painter",
-      rating: 4.3,
-      category: "Romance, Citypop",
-      imgSrc: "/trend4.png",
-    },
-    {
-      id: 5,
-      title: "Mr. Wrong Number",
-      writer: "Lynn Painter",
-      rating: 4.3,
-      category: "Romance, Citypop",
-      imgSrc: "/trend5.png",
-    },
-  ];
-
-  const publicReadingList = [
-    {
-      id: 1,
-      group: "Food For Thoughts",
-      books: [
-        {
-          id: 1,
-          imgSrc: "/tr1.jpg",
-        },
-        {
-          id: 2,
-          imgSrc: "/tr2.jpg",
-        },
-        {
-          id: 3,
-          imgSrc: "/tr3.jpg",
-        },
-      ],
-    },
-    {
-      id: 2,
-      group: "From Lynn",
-      books: [
-        {
-          id: 1,
-          imgSrc: "/tr1.jpg",
-        },
-        {
-          id: 2,
-          imgSrc: "/tr2.jpg",
-        },
-        {
-          id: 3,
-          imgSrc: "/tr3.jpg",
-        },
-      ],
-    },
-    {
-      id: 3,
-      group: "Should Made Into Movies",
-      books: [
-        {
-          id: 1,
-          imgSrc: "/tr1.jpg",
-        },
-        {
-          id: 2,
-          imgSrc: "/tr2.jpg",
-        },
-        {
-          id: 3,
-          imgSrc: "/tr3.jpg",
-        },
-        {
-          id: 4,
-          imgSrc: "/tr1.jpg",
-        },
-        {
-          id: 5,
-          imgSrc: "/tr2.jpg",
-        },
-        {
-          id: 6,
-          imgSrc: "/tr3.jpg",
-        },
-        {
-          id: 7,
-          imgSrc: "/tr1.jpg",
-        },
-        {
-          id: 8,
-          imgSrc: "/tr2.jpg",
-        },
-        {
-          id: 9,
-          imgSrc: "/tr3.jpg",
-        },
-      ],
     },
   ];
 
@@ -162,6 +41,31 @@ const Discovery = () => {
       else return data;
     });
   };
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const token = await AsyncLocalStorage.getItem("token");
+
+        if (token) {
+          const decodedUserId = getUserIdFromToken(token);
+
+          if (decodedUserId) {
+            setUserId(decodedUserId);
+          } else {
+            console.error("failed to decode User ID from token.");
+          }
+        } else {
+          router.push("/login");
+        }
+      } catch (err) {
+        console.error("Error fetching User Information", err);
+      }
+    };
+
+    fetchUserInfo();
+  }, [router]);
+
   return (
     <main className="mt-8 container mx-auto max-w-screen-lg">
       <div className="font-bold text-customDefaultText text-3xl w-[128px] border-b-2">
@@ -193,7 +97,7 @@ const Discovery = () => {
       </div>
       <div className="w-[128px] border-b-2"></div>
       <div className="mt-4">
-        <Trending data={dataTrending} />
+        <Trending API_URL={API_URL} />
       </div>
       <div className="font-bold text-customDefaultText text-3xl flex justify-between items-center">
         <div>Public Reading List</div>
@@ -217,9 +121,7 @@ const Discovery = () => {
         </div>
       </div>
       <div className="w-[128px] border-b-2"></div>
-      <div className="mt-4">
-        <PublicReadList data={publicReadingList} />
-      </div>
+      <div className="mt-4">{/*<PublicReadList API_URL={API_URL} />*/}</div>
     </main>
   );
 };

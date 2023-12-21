@@ -1,6 +1,6 @@
 import "./SearchBar.css";
 import { CiSearch } from "react-icons/ci";
-import ButtonIcon from "../ButtonIcon/";
+import ButtonIcon from "../ButtonIcon";
 
 const SearchBar = ({ targetPage }) => {
   return (
