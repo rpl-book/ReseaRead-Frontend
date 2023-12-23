@@ -3,6 +3,7 @@ import { PTitle, PAuthor } from "../PText";
 import ReadingProgress from "../ReadingProgress";
 
 const ConReadingCard = ({
+  bookId,
   bookTitle,
   bookAuthor,
   currentPage,
@@ -14,7 +15,7 @@ const ConReadingCard = ({
       <div className="cr-wrapper mt-7">
         <img className="cr-image" src={bookImg} />
         <div className="cr-content">
-          <PTitle bookTitle={bookTitle} />
+          <PTitle bookId={bookId} bookTitle={bookTitle} />
           <PAuthor bookAuthor={bookAuthor} />
           <ReadingProgress currentPage={currentPage} totalPage={totalPage} />
         </div>

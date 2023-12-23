@@ -2,29 +2,24 @@ import React, { useState } from "react";
 import "./ModalAddNewBookForm.css";
 import { RxSlash } from "react-icons/rx";
 import Button from "../Button";
+import axios from "axios";
 
-const ModalAddNewBookForm = ({
-  closeModal,
-  img,
-  title,
-  author,
-  currentPage,
-  totalPage,
-  status: initialStatus,
-}) => {
-  const [InputTitle, setTitle] = useState(title || "");
-  const [InputAuthor, setAuthor] = useState(author || "");
-  const [InputImg, setImg] = useState(img || "");
-  const [InputCurrentPage, setCurrentPage] = useState(currentPage || "");
-  const [InputTotalPage, setTotalPage] = useState(totalPage || "");
-  const [InputStatus, setStatus] = useState(initialStatus || "");
+const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
+  const [title, setTitle] = useState(addedTitle || "");
+  const [author, setAuthor] = useState("");
+  const [coverBook, setCoverBook] = useState("/img-placeholder.png");
+  const [currentPage, setCurrentPage] = useState("");
+  const [totalPage, setTotalPage] = useState("");
+  const [listType, setListType] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
 
   const handleImgChange = (e) => {
-    setImg(e.target.value);
+    const newBookCoverBookUrl = e.target.value;
+    setCoverBook(newBookCoverBookUrl);
   };
 
   const handleAuthorChange = (e) => {
@@ -39,8 +34,44 @@ const ModalAddNewBookForm = ({
     setTotalPage(e.target.value);
   };
 
+  const handleListTypeChange = (e) => {
+    setListType(e.target.value);
+  };
+
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
+  };
+
+  const handleAddingNewBook = async (e) => {
+    e.preventDefault();
+    console.log("Adding new book...");
+
+    try {
+      const addBookToSystem = await axios.post(`${API_URL}/api/book/addBook`, {
+        author,
+        description: "There is no description yet.",
+        rating: 0,
+        genre: "Other",
+        coverImage: coverBook,
+        page: totalPage,
+        title,
+      });
+
+      if (addBookToSystem.status === 200) {
+        await axios.post(`${API_URL}/api/library/addBook`, {
+          userId,
+          title,
+          readStatus: status,
+          pageProgress: currentPage,
+          listType,
+        });
+
+        alert("Successfully add new Book to Library");
+        window.location.reload();
+      }
+    } catch (err) {
+      console.error("Error when add new book", err.message);
+    }
   };
 
   return (
@@ -51,7 +82,7 @@ const ModalAddNewBookForm = ({
 
       <div className="modal-form flex">
         <div className="book-imgg mt-7">
-          <img src={"/img-placeholder.png"} alt="Image Placeholder" />
+          <img src={coverBook} />
         </div>
         <div className="book-desc mb-5 ml-8">
           <div className="book-desc-1">
@@ -60,7 +91,7 @@ const ModalAddNewBookForm = ({
               className="focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="Title"
-              value={InputTitle}
+              value={title}
               onChange={handleTitleChange}
             />
           </div>
@@ -71,7 +102,7 @@ const ModalAddNewBookForm = ({
               className="focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="Author"
-              value={InputAuthor}
+              value={author}
               onChange={handleAuthorChange}
             />
           </div>
@@ -83,7 +114,7 @@ const ModalAddNewBookForm = ({
                 className="focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="000"
-                value={InputCurrentPage}
+                value={currentPage}
                 onChange={handleCurrentPageChange}
               />
               <div>
@@ -93,7 +124,7 @@ const ModalAddNewBookForm = ({
                 className="focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="000"
-                value={InputTotalPage}
+                value={totalPage}
                 onChange={handleTotalPageChange}
               />
             </div>
@@ -105,7 +136,6 @@ const ModalAddNewBookForm = ({
               className="focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="Cover URL"
-              value={InputImg}
               onChange={handleImgChange}
             />
           </div>
@@ -114,14 +144,13 @@ const ModalAddNewBookForm = ({
             <label className="block">List</label>
             <select
               className="focus:outline-none focus:shadow-outline"
-              value={InputStatus}
-              onChange={handleStatusChange}
+              value={listType}
+              onChange={handleListTypeChange}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select Reading List
               </option>
               <option value="reading">Food For Thoughts</option>
-              <option value="finished">...</option>
             </select>
           </div>
 
@@ -129,10 +158,10 @@ const ModalAddNewBookForm = ({
             <label className="block">Status</label>
             <select
               className="focus:outline-none focus:shadow-outline"
-              value={InputStatus}
+              value={status}
               onChange={handleStatusChange}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select Status
               </option>
               <option value="reading">Reading</option>
@@ -143,7 +172,14 @@ const ModalAddNewBookForm = ({
       </div>
 
       <div className="mod-btnn">
-        <Button buttonName="Save" color="white" width={70} targetPage="#" />
+        <Button
+          buttonName="Save"
+          color="white"
+          targetPage="/library"
+          width={70}
+          handleButton={handleAddingNewBook}
+        />
+
         <button onClick={closeModal}>
           <Button
             buttonName="Discard"

@@ -3,6 +3,7 @@ import ConReadingCard from "../ConReadingCard";
 import Button from "../Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ModalLoading from "@/components/LoadingSpinner";
 
 const ContinueReading = ({ userId, API_URL }) => {
   const [userReads, setUserReads] = useState([]);
@@ -35,6 +36,7 @@ const ContinueReading = ({ userId, API_URL }) => {
             userReads.map((userBooks) => (
               <div key={userBooks.bookId} className="mt-10">
                 <ConReadingCard
+                  bookId={userBooks.bookId}
                   bookTitle={userBooks.Book.title}
                   bookAuthor={userBooks.Book.author}
                   bookImg={userBooks.Book.coverImage}
@@ -44,7 +46,7 @@ const ContinueReading = ({ userId, API_URL }) => {
               </div>
             ))
           ) : (
-            <p>Loading...</p>
+            <ModalLoading />
           )}
         </div>
 

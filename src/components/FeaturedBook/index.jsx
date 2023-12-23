@@ -6,6 +6,7 @@ import Button from "../Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ModalLoading from "@/components/LoadingSpinner";
 
 const FeaturedBook = ({ API_URL }) => {
   const [randomBook, setRandomBook] = useState(null);

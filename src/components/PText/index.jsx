@@ -2,13 +2,13 @@ import React from "react";
 import "./PText.css";
 import Link from "next/link";
 
-const PTitle = ({ bookTitle, size, linktobook }) => {
+const PTitle = ({ bookId, bookTitle, size, linktobook }) => {
   const fontSize = size ? `${size}px` : "inherit";
 
   return (
     <div>
       <p className="p-title" style={{ fontSize }}>
-        <a href={linktobook}>{bookTitle}</a>
+        <Link href={`/book/${bookId}`}>{bookTitle}</Link>
       </p>
     </div>
   );

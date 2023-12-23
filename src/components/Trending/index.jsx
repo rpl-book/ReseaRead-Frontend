@@ -1,16 +1,12 @@
 "use client";
-import Image from "next/image";
 import "./style.css";
-import { BsBell, BsGear } from "react-icons/bs";
-import { CiViewTimeline, CiMail } from "react-icons/ci";
-import { BsThreeDotsVertical } from "react-icons/bs";
-import Link from "next/link";
 import { BsTag } from "react-icons/bs";
 import { BsStar } from "react-icons/bs";
 import { BsStarFill } from "react-icons/bs";
 import Button from "../Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ModalLoading from "@/components/LoadingSpinner";
 
 const Trending = ({ API_URL }) => {
   const [trendingBook, setTrendingBook] = useState([]);
@@ -38,14 +34,14 @@ const Trending = ({ API_URL }) => {
       <div className="grid grid-cols-5 gap-10 grid-flow-row-dense">
         {trendingBook ? (
           trendingBook.map((book) => (
-            <div className="flex flex-col ">
+            <div key={book.bookId} className="flex flex-col ">
               <div className="mt-4 relative h-[292px] rounded-xl">
                 <img
                   className="rounded-xl"
                   src={book.coverImage}
                   alt={book.title}
-                  fill
-                  objectFit="cover"
+                  fill="true"
+                  objectfit="cover"
                 />
               </div>
               <div className="mt-4 h-1/6 text-xl font-bold ">{book.title}</div>
@@ -56,11 +52,11 @@ const Trending = ({ API_URL }) => {
                 <div className="flex">
                   {Array.from({ length: 5 }, (_, idx) =>
                     idx < Math.round(book.rating) ? (
-                      <span className="text-customColorOrange">
+                      <span key={idx} className="text-customColorOrange">
                         <BsStarFill />
                       </span>
                     ) : (
-                      <span className="text-customColorGray">
+                      <span key={idx} className="text-customColorGray">
                         <BsStar />
                       </span>
                     )
@@ -77,7 +73,7 @@ const Trending = ({ API_URL }) => {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <ModalLoading />
         )}
       </div>
       <div className="flex justify-center m-8">

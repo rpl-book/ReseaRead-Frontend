@@ -3,13 +3,7 @@ import "./ModalAddBook.css";
 import { RxSlash } from "react-icons/rx";
 import Button from "../Button";
 
-const ModalAddBook = ({
-  closeModal,
-  title,
-  currentPage,
-  totalPage,
-  status: initialStatus,
-}) => {
+const ModalAddBook = ({ closeModal, userId, API_URL }) => {
   const [InputTitle, setTitle] = useState(title || "");
   const [InputCurrentPage, setCurrentPage] = useState(currentPage || "");
   const [InputTotalPage, setTotalPage] = useState(totalPage || "");

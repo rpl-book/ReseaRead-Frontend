@@ -3,6 +3,7 @@ import SubsectionText from "../SubsectionText";
 import TopPicksCard from "../TopPicksCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ModalLoading from "@/components/LoadingSpinner";
 
 const TopPicks = ({ API_URL }) => {
   const [topPicksBook, setTopPicksBook] = useState([]);
@@ -46,7 +47,7 @@ const TopPicks = ({ API_URL }) => {
             />
           ))
         ) : (
-          <p>Loading...</p>
+          <ModalLoading />
         )}
       </div>
 
