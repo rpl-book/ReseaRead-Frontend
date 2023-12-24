@@ -17,6 +17,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const library = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [userId, setUserId] = useState(null);
+  const [status, setStatus] = useState("All");
   const router = useRouter();
 
   useEffect(() => {
@@ -67,11 +68,15 @@ const library = () => {
 
           <div className="flex">
             <div className="mt-10">
-              <ReadingListMenu />
+              <ReadingListMenu setStatus={setStatus} />
             </div>
 
             <div className="mt-10 ml-10">
-              <LibraryTable userId={userId} API_URL={API_URL} />
+              <LibraryTable
+                userId={userId}
+                API_URL={API_URL}
+                statusType={status}
+              />
             </div>
           </div>
 

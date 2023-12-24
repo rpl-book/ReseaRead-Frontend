@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./modal.css";
 import axios from "axios";
 import ModalAddBook_SearchTitle from "@/components/ModalAddBook_SearchTitle";
@@ -10,6 +10,7 @@ import ModalAddNewBookForm from "../../../components/ModalAddNewBookForm";
 
 const Modal = ({ closeModal, userId, API_URL }) => {
   const [title, setTitle] = useState("");
+  const [bookData, setBookData] = useState({});
   const [showSearchTitleModal, setShowSearchTitleModal] = useState(true);
   const [showMessageModal, setShowMessageModal] = useState(false);
   const [showNewBookToLibModal, setShowNewBookToLibModal] = useState(false);
@@ -18,7 +19,7 @@ const Modal = ({ closeModal, userId, API_URL }) => {
 
   const handleSearchTitle = async (e) => {
     e.preventDefault();
-    console.log("its pressed");
+    setShowSearchTitleModal(false);
     try {
       const bookTitleResponse = await axios.get(
         `${API_URL}/api/book/books/one`,
@@ -28,11 +29,12 @@ const Modal = ({ closeModal, userId, API_URL }) => {
           },
         }
       );
-      setShowSearchTitleModal(false);
+
       if (bookTitleResponse.data.message === "Book Not Found") {
         setShowMessageModal(true);
       } else {
         setShowNewBookToLibModal(true);
+        setBookData(bookTitleResponse.data.payload);
       }
     } catch (err) {
       console.error("There's an error during API Request : ", err.message);
@@ -63,6 +65,9 @@ const Modal = ({ closeModal, userId, API_URL }) => {
         )}
         {showNewBookToLibModal && (
           <ModalAddBook
+            addedTitle={bookData.title}
+            addedPage={bookData.page}
+            addedCoverImage={bookData.coverImage}
             closeModal={closeModal}
             userId={userId}
             API_URL={API_URL}
@@ -70,10 +75,10 @@ const Modal = ({ closeModal, userId, API_URL }) => {
         )}
         {showNewBookFormAndLibModal && (
           <ModalAddNewBookForm
+            addedTitle={title}
             closeModal={closeModal}
             userId={userId}
             API_URL={API_URL}
-            addedTitle={title}
           />
         )}
       </div>

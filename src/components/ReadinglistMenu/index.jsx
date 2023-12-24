@@ -5,7 +5,7 @@ import NewReadingList from "../NewReadingList";
 import "./ReadingListMenu.css";
 import ModalNewReadinglist from "../../app/(home)/modal-newReadinglist/page";
 
-const ReadingListMenu = () => {
+const ReadingListMenu = ({ setStatus }) => {
   const [isModalNewReadinglistOpen, setModalNewReadinglistOpen] =
     useState(false);
 
@@ -17,24 +17,39 @@ const ReadingListMenu = () => {
     setModalNewReadinglistOpen(false);
   };
 
+  const handleReadingListClick = (statusType) => {
+    setStatus(statusType);
+  };
+
   return (
     <div>
       <p className="pl-1 reading-list font-bold">Reading List</p>
       <div className="divider"></div>
       <div className="lib-readinglist mt-3">
-        <NewReadingList readingListName={"All"} route={"#"} />
-        <NewReadingList readingListName={"Reading"} route={"#"} />
-        <NewReadingList readingListName={"Want To Read"} route={"#"} />
-        <NewReadingList readingListName={"Finished"} route={"#"} />
+        <NewReadingList
+          readingListName={"All"}
+          onUpdateTable={handleReadingListClick}
+        />
+        <NewReadingList
+          readingListName={"Reading"}
+          onUpdateTable={handleReadingListClick}
+        />
+        <NewReadingList
+          readingListName={"Want To Read"}
+          onUpdateTable={handleReadingListClick}
+        />
+        <NewReadingList
+          readingListName={"Finished"}
+          onUpdateTable={handleReadingListClick}
+        />
 
         <div className="mt-5 mb-5">
-          {" "}
           <Line width="100px" height="0.5px" color="black" />{" "}
         </div>
-        <NewReadingList readingListName={"Food For Thoughts"} route={"#"} />
+        <NewReadingList readingListName={"Food For Thoughts"} />
         <button onClick={openModalNewReadinglist}>
           <div className="add-new-list">
-            <NewReadingList readingListName={"Add New List"} route={"#"} />
+            <NewReadingList readingListName={"Add New List"} />
           </div>
         </button>
       </div>

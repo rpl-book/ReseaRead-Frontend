@@ -2,27 +2,49 @@ import React, { useState } from "react";
 import "./ModalAddBook.css";
 import { RxSlash } from "react-icons/rx";
 import Button from "../Button";
+import axios from "axios";
 
-const ModalAddBook = ({ closeModal, userId, API_URL }) => {
-  const [InputTitle, setTitle] = useState(title || "");
-  const [InputCurrentPage, setCurrentPage] = useState(currentPage || "");
-  const [InputTotalPage, setTotalPage] = useState(totalPage || "");
-  const [InputStatus, setStatus] = useState(initialStatus || "");
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+const ModalAddBook = ({
+  closeModal,
+  userId,
+  API_URL,
+  addedTitle,
+  addedPage,
+  addedCoverImage,
+}) => {
+  const [currentPage, setCurrentPage] = useState("");
+  const [listType, setListType] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleCurrentPageChange = (e) => {
     setCurrentPage(e.target.value);
   };
 
-  const handleTotalPageChange = (e) => {
-    setTotalPage(e.target.value);
+  const handleListTypeChange = (e) => {
+    setListType(e.target.value);
   };
 
   const handleStatusChange = (e) => {
     setStatus(e.target.value);
+  };
+
+  const handleAddingNewBook = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`${API_URL}/api/library/addBook`, {
+        userId,
+        title: addedTitle,
+        readStatus: status,
+        pageProgress: currentPage,
+        listType,
+      });
+
+      alert("Successfully add new Book to Library");
+      window.location.reload();
+    } catch (err) {
+      console.error("Error on adding book to Library: ", err.message);
+    }
   };
 
   return (
@@ -33,20 +55,9 @@ const ModalAddBook = ({ closeModal, userId, API_URL }) => {
 
       <div className="modal-form flex">
         <div className="book-imgg mt-7">
-          <img src={"/img-placeholder.png"} alt="Image Placeholder" />
+          <img src={`${addedCoverImage}`} alt={`${addedTitle}`} />
         </div>
         <div className="book-desc mb-5 ml-8">
-          <div className="book-desc-1">
-            <label className="block">Title</label>
-            <input
-              className="focus:outline-none focus:shadow-outline"
-              type="text"
-              placeholder="Title"
-              value={InputTitle}
-              onChange={handleTitleChange}
-            />
-          </div>
-
           <div className="book-desc-1">
             <label className="block">Page</label>
             <div className="flex items-center input-page-date">
@@ -54,7 +65,7 @@ const ModalAddBook = ({ closeModal, userId, API_URL }) => {
                 className="focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="000"
-                value={InputCurrentPage}
+                value={currentPage}
                 onChange={handleCurrentPageChange}
               />
               <div>
@@ -64,8 +75,8 @@ const ModalAddBook = ({ closeModal, userId, API_URL }) => {
                 className="focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="000"
-                value={InputTotalPage}
-                onChange={handleTotalPageChange}
+                value={addedPage}
+                disabled={true}
               />
             </div>
           </div>
@@ -74,14 +85,14 @@ const ModalAddBook = ({ closeModal, userId, API_URL }) => {
             <label className="block">List</label>
             <select
               className="focus:outline-none focus:shadow-outline"
-              value={InputStatus}
-              onChange={handleStatusChange}
+              value={listType}
+              onChange={handleListTypeChange}
+              required
             >
-              <option value="" disabled selected>
+              <option value="" disabled hidden>
                 Select Reading List
               </option>
-              <option value="reading">Food For Thoughts</option>
-              <option value="finished">...</option>
+              <option value="Food For Thoughts">Food For Thoughts</option>
             </select>
           </div>
 
@@ -89,21 +100,29 @@ const ModalAddBook = ({ closeModal, userId, API_URL }) => {
             <label className="block">Status</label>
             <select
               className="focus:outline-none focus:shadow-outline"
-              value={InputStatus}
+              value={status}
               onChange={handleStatusChange}
+              required
             >
-              <option value="" disabled selected>
+              <option value="" disabled hidden>
                 Select Status
               </option>
-              <option value="reading">Reading</option>
-              <option value="finished">Finished</option>
+              <option value="Reading">Reading</option>
+              <option value="Want To Read">Want to Read</option>
+              <option value="Finished">Finished</option>
             </select>
           </div>
         </div>
       </div>
 
       <div className="mod-btnn">
-        <Button buttonName="Save" color="white" width={70} targetPage="#" />
+        <Button
+          buttonName="Save"
+          color="white"
+          targetPage="/library"
+          width={70}
+          handleButton={handleAddingNewBook}
+        />
         <button onClick={closeModal}>
           <Button
             buttonName="Discard"

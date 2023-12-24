@@ -2,7 +2,7 @@
 import "./modal-loadingpage.css";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
-const Modal = ({}) => {
+const Modal = () => {
   return (
     <div className="modal">
       <div className="overlay"></div>

@@ -18,7 +18,9 @@ const NavigationBar = () => {
           </li>
 
           <li>
-            <Link href="/library">My Library</Link>
+            <div>
+              <Link href="/library">My Library</Link>
+            </div>
           </li>
 
           <li>
@@ -26,7 +28,7 @@ const NavigationBar = () => {
           </li>
 
           <li>
-            <a href="#">Profile</a>
+            <a href="/profile">Profile</a>
           </li>
 
           <li>

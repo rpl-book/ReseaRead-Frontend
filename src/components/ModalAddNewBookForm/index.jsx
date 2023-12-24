@@ -44,7 +44,6 @@ const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
 
   const handleAddingNewBook = async (e) => {
     e.preventDefault();
-    console.log("Adding new book...");
 
     try {
       const addBookToSystem = await axios.post(`${API_URL}/api/book/addBook`, {
@@ -150,7 +149,7 @@ const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
               <option value="" disabled>
                 Select Reading List
               </option>
-              <option value="reading">Food For Thoughts</option>
+              <option value="Food For Thoughts">Food For Thoughts</option>
             </select>
           </div>
 
@@ -164,8 +163,8 @@ const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
               <option value="" disabled>
                 Select Status
               </option>
-              <option value="reading">Reading</option>
-              <option value="finished">Finished</option>
+              <option value="Reading">Reading</option>
+              <option value="Finished">Finished</option>
             </select>
           </div>
         </div>

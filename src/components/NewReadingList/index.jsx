@@ -1,10 +1,12 @@
 import "./NewReadingList.css";
 
-const NewReadingList = ({ readingListName, route }) => {
+const NewReadingList = ({ readingListName, onUpdateTable }) => {
   return (
     <div className="lib-readinglist">
       <p>
-        <a href={route}>{readingListName}</a>
+        <a href={"#"} onClick={() => onUpdateTable(readingListName)}>
+          {readingListName}
+        </a>
       </p>
     </div>
   );

@@ -3,22 +3,28 @@ import NewTableRow from "../NewTableRow";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const LibraryTable = ({ userId, API_URL }) => {
+const LibraryTable = ({ userId, API_URL, statusType }) => {
   const [userLibrary, setUserLibrary] = useState([]);
 
   useEffect(() => {
     const fetchUserLibrary = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/library/${userId}`);
-        setUserLibrary(response.data.libraryBooks);
+        const thisUserBook = response.data.libraryBooks;
+        const filteredLibByStatus =
+          statusType === "All"
+            ? thisUserBook
+            : thisUserBook.filter(
+                (bookInLib) => bookInLib.readStatus === statusType
+              );
+        setUserLibrary(filteredLibByStatus);
       } catch (err) {
         console.log(err);
       }
     };
-
     fetchUserLibrary();
-  }, [userId, API_URL]);
-
+  }, [userId, API_URL, statusType]);
+  console.log(statusType);
   return (
     <div>
       <div className="flex flex-col">
@@ -42,6 +48,7 @@ const LibraryTable = ({ userId, API_URL }) => {
                     userLibrary.map((userBooks) => (
                       <NewTableRow
                         key={userBooks.libraryId}
+                        libraryId={userBooks.libraryId}
                         cover={userBooks.Book.coverImage}
                         bookTitle={userBooks.Book.title}
                         bookAuthor={userBooks.Book.author}
@@ -54,7 +61,7 @@ const LibraryTable = ({ userId, API_URL }) => {
                       />
                     ))
                   ) : (
-                    <p>Loading...</p>
+                    <></>
                   )}
                 </tbody>
               </table>

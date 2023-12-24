@@ -1,0 +1,12 @@
+.customGrad {
+  background: linear-gradient(
+    85.9deg,
+    #ffb2b2 -8.65%,
+    #d3d3d3 -8.64%,
+    rgba(237, 218, 172, 0.320259) 59.97%,
+    rgba(216, 241, 58, 0) 111.56%
+  );
+}
+.customBgButton {
+  color: #d84727;
+}

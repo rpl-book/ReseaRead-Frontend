@@ -13,6 +13,7 @@ const NewTableRow = ({
   readingStatus,
   currentPage,
   totalPage,
+  libraryId,
 }) => {
   const [isModalDeleteOpen, setModalDeleteOpen] = useState(false);
   const [isModalEditOpen, setModalEditOpen] = useState(false);
@@ -79,9 +80,14 @@ const NewTableRow = ({
       </td>
 
       {isModalDeleteOpen && (
-        <ModalDeleteBook closeModalDelete={closeModalDelete} />
+        <ModalDeleteBook
+          closeModalDelete={closeModalDelete}
+          libraryId={libraryId}
+        />
       )}
-      {isModalEditOpen && <ModalEditBook closeModalEdit={closeModalEdit} />}
+      {isModalEditOpen && (
+        <ModalEditBook closeModalEdit={closeModalEdit} libraryId={libraryId} />
+      )}
     </tr>
   );
 };

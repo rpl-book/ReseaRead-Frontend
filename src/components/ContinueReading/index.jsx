@@ -49,15 +49,18 @@ const ContinueReading = ({ userId, API_URL }) => {
             <ModalLoading />
           )}
         </div>
-
-        <div className="flex justify-center items-center mt-20 mb-20">
-          <Button
-            buttonName="See More"
-            size="20"
-            color="white"
-            targetPage="/library"
-          />
-        </div>
+        {userReads.length !== 0 ? (
+          <div className="flex justify-center items-center mt-20 mb-20">
+            <Button
+              buttonName="See More"
+              size="20"
+              color="white"
+              targetPage="/library"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );
