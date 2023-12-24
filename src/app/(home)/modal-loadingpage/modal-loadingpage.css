@@ -1,0 +1,43 @@
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.modal {
+  height: auto;
+  margin-top: 8%;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 850px;
+  min-width: 300px;
+  font-size: 16px;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

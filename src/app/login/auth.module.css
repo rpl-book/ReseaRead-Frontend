@@ -1,0 +1,101 @@
+.auth {
+  height: 100vh;
+  background: linear-gradient(0.5turn, rgb(126, 151, 137), rgb(174, 200, 199));
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+}
+
+.auth__heading {
+  font-size: 1.8rem;
+}
+
+.auth__mainWrapper {
+  position: relative;
+  background: white;
+  border-radius: 40px 0px 0px 30px;
+}
+
+.authAlternative__items {
+  display: flex;
+  gap: 30px;
+}
+
+.authAlternative__item {
+  flex: 1;
+  padding: 0px 30px;
+  align-items: center;
+  display: flex;
+  background: white;
+  border: 2px solid rgb(126, 151, 137);
+  border-radius: 8px;
+  gap: 10px;
+}
+.authAlternative__item:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.authAlternative__icon {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 20px;
+  overflow: hidden;
+}
+
+.authAlternative__text {
+  text-align: center;
+}
+
+.auth__main {
+  height: fit-content;
+  padding: 0px 120px;
+  position: absolute;
+  inset: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.auth__main > * {
+  margin-bottom: 30px;
+}
+
+.auth__form > button {
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  background: rgb(126, 151, 137);
+  width: 100%;
+}
+.auth__form > button:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+.form__entry {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.form__entry > input {
+  width: 100%;
+  border: 0px solid black;
+  border-bottom: 2px solid rgb(126, 151, 137);
+}
+.form__entry > input::placeholder {
+  filter: brightness(120%);
+}
+
+.auth__footer {
+  color: rgb(126, 151, 137);
+}
+.auth__footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(126, 151, 137);
+}
+.auth__footer a:hover {
+  text-decoration: underline;
+}
+
+.authAlternative__name {
+  font-size: 0.9em;
+}
