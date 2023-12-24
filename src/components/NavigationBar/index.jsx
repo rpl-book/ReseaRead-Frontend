@@ -1,8 +1,19 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import "./navbar.css";
+import { useRouter } from "next/navigation";
+import AsyncLocalStorage from "@createnextapp/async-local-storage";
 
 const NavigationBar = () => {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await AsyncLocalStorage.removeItem("token");
+    alert("Successfully Logout");
+    router.push("/login");
+  };
+
   return (
     <div className="container mx-auto max-w-screen-lg">
       <nav>
@@ -28,7 +39,10 @@ const NavigationBar = () => {
           </li>
 
           <li>
-            <a href="/profile">Profile</a>
+            {/*<a href="/profile">Profile</a>*/}
+            <a href="#" onClick={handleLogout} cursor>
+              Logout
+            </a>
           </li>
 
           <li>
