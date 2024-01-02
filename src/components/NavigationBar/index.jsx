@@ -40,8 +40,8 @@ const NavigationBar = () => {
 
           <li>
             {/*<a href="/profile">Profile</a>*/}
-            <a href="#" onClick={handleLogout} cursor>
-              Logout
+            <a href="#" onClick={handleLogout}>
+              My Profile
             </a>
           </li>
 

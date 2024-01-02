@@ -12,11 +12,10 @@ import { getUserIdFromToken } from "@/app/utils/authToken";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const Discovery = () => {
-  const [activeMenu, setActiveMenu] = useState(null);
   const [userId, setUserId] = useState(null);
   const router = useRouter();
 
-  const dataCategory = [
+  const categoryType = [
     {
       id: 1,
       name: "Romance",
@@ -34,13 +33,6 @@ const Discovery = () => {
       name: "Science",
     },
   ];
-
-  const onClickButton = (data) => {
-    setActiveMenu((prevData) => {
-      if (prevData == data) return null;
-      else return data;
-    });
-  };
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -68,13 +60,11 @@ const Discovery = () => {
 
   return (
     <main className="mt-8 container mx-auto max-w-screen-lg">
-      <div className="font-bold text-customDefaultText text-3xl w-[128px] border-b-2">
-        Category
-      </div>
+      <div className="font-bold text-3xl w-[128px] border-b-2">Category</div>
       <div className="mt-4">
-        <Category data={dataCategory} detail={true} />
+        <Category data={categoryType} />
       </div>
-      <div className="font-bold text-customDefaultText text-3xl flex justify-between items-center">
+      <div className="font-bold text-3xl flex justify-between items-center">
         <div>Trending</div>
         <div className="flex space-x-2">
           <Button
@@ -99,29 +89,6 @@ const Discovery = () => {
       <div className="mt-4">
         <Trending API_URL={API_URL} />
       </div>
-      <div className="font-bold text-customDefaultText text-3xl flex justify-between items-center">
-        <div>Public Reading List</div>
-        <div className="flex space-x-2">
-          <Button
-            className="left"
-            iconTag={<BsChevronLeft />}
-            buttonName=""
-            fontSize="12"
-            color="white"
-            targetPage="#"
-          />
-          <Button
-            className="right"
-            iconTag={<BsChevronRight />}
-            buttonName=""
-            fontSize="12"
-            color="white"
-            targetPage="#"
-          />
-        </div>
-      </div>
-      <div className="w-[128px] border-b-2"></div>
-      <div className="mt-4">{/*<PublicReadList API_URL={API_URL} />*/}</div>
     </main>
   );
 };

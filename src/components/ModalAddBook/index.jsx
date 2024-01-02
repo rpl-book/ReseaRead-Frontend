@@ -30,7 +30,10 @@ const ModalAddBook = ({
 
   const handleAddingNewBook = async (e) => {
     e.preventDefault();
-
+    if (currentPage > addedPage || currentPage < 0) {
+      alert("Invalid page");
+      return;
+    }
     try {
       await axios.post(`${API_URL}/api/library/addBook`, {
         userId,
@@ -39,7 +42,7 @@ const ModalAddBook = ({
         pageProgress: currentPage,
         listType,
       });
-
+      console.log(listType, status);
       alert("Successfully add new Book to Library");
       window.location.reload();
     } catch (err) {
@@ -108,7 +111,7 @@ const ModalAddBook = ({
                 Select Status
               </option>
               <option value="Reading">Reading</option>
-              <option value="Want To Read">Want to Read</option>
+              <option value="Want To Read">Want To Read</option>
               <option value="Finished">Finished</option>
             </select>
           </div>

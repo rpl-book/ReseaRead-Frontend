@@ -6,7 +6,7 @@ import "./NewRelease.css";
 
 const NewRelease = ({ desc }) => {
   return (
-    <div>
+    <div className="mt-10">
       <div className="mt-30 mb-10">
         <SubsectionText title="New Release" />
 

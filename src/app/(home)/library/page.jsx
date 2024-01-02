@@ -66,18 +66,13 @@ const library = () => {
             </div>
           </div>
 
-          <div className="flex">
-            <div className="mt-10">
-              <ReadingListMenu setStatus={setStatus} />
-            </div>
-
-            <div className="mt-10 ml-10">
-              <LibraryTable
-                userId={userId}
-                API_URL={API_URL}
-                statusType={status}
-              />
-            </div>
+          <div className="flex justify-between my-16">
+            <ReadingListMenu setStatus={setStatus} />
+            <LibraryTable
+              userId={userId}
+              API_URL={API_URL}
+              statusType={status}
+            />
           </div>
 
           {isModalOpen && (

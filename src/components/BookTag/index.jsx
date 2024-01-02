@@ -1,12 +1,12 @@
 import "./BookTag.css";
-import { GoTag } from "react-icons/go";
+import { BsTag } from "react-icons/bs";
 import { PTag } from "../PText";
 
 const BookTag = ({ tags }) => {
   return (
     <div className="flex">
       <div className="tagicon mt-2">
-        <GoTag />
+        <BsTag />
       </div>
       <PTag tags={tags} />
     </div>

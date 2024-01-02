@@ -52,7 +52,7 @@ const Book = ({ params }) => {
           >
             <BsArrowLeft />
           </button>
-          <div className="cursor-pointer">Book Details</div>
+          <h1>Book Details</h1>
         </div>
       </div>
       <div className="mt-4">

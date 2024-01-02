@@ -43,7 +43,7 @@ const ReadingListMenu = ({ setStatus }) => {
           onUpdateTable={handleReadingListClick}
         />
 
-        <div className="mt-5 mb-5">
+        <div className="">
           <Line width="100px" height="0.5px" color="black" />{" "}
         </div>
         <NewReadingList readingListName={"Food For Thoughts"} />
