@@ -14,6 +14,7 @@ import Button from "../Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import BookTag from "../BookTag";
+import StarRating from "../StarRating";
 
 const BookDetail = ({ data, userId, API_URL }) => {
   const [showReview, setShowReview] = useState(false);
@@ -148,19 +149,7 @@ const BookDetail = ({ data, userId, API_URL }) => {
         <div className="text-base text-customColorOrange">{data.author}</div>
         <div className="flex items-center w-full space-x-4 justify-start text-sm font-bold">
           <div className="flex">
-            {Array.from({ length: 5 }, (_, idx) => (
-              <span key={`star_${idx}`} className="flex">
-                {idx < Math.round(data.rating) ? (
-                  <span className="text-customColorOrange">
-                    <BsStarFill />
-                  </span>
-                ) : (
-                  <span className="text-customColorGray">
-                    <BsStar />
-                  </span>
-                )}
-              </span>
-            ))}
+            <StarRating rate={data.rating} />
           </div>
           <div className="flex space-x-2">
             <span>{data.rating}</span>

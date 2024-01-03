@@ -23,17 +23,14 @@ const TopPicksCard = ({
           <PSAuthor bookAuthor={bookAuthor} linkToAuthor={authorProfile} />
         </div>
         <div className="flex">
-          <StarRating />
-          <div className="ml-3 mt-3">
-            <PRate rate={bookRating} />
-          </div>
+          <StarRating rate={bookRating} />
         </div>
         <div>
           {genres && (
             <BookTag
-              tags={genres.map((tag, index) => ({
+              tags={genres.map((tag) => ({
                 name: tag,
-                route: `#${index + 1}`,
+                route: `#${tag}`,
               }))}
             />
           )}

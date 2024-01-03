@@ -6,7 +6,6 @@ import Button from "../Button";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import ModalLoading from "@/components/LoadingSpinner";
 
 const FeaturedBook = ({ API_URL }) => {
   const [randomBook, setRandomBook] = useState(null);
@@ -43,6 +42,9 @@ const FeaturedBook = ({ API_URL }) => {
             >
               {randomBook.title}
             </Link>
+          </div>
+
+          <div className="banner flex flex-row items-center px-10 gap-8">
             <img
               className="featured-img"
               src={randomBook.coverImage}
@@ -53,39 +55,17 @@ const FeaturedBook = ({ API_URL }) => {
                 e.target.src = "../placeholder/coverPlaceholder.png";
               }}
             />
-          </div>
-
-          <div className="featured-prev-next">
-            <Button
-              className="left"
-              iconTag={<BsChevronLeft />}
-              buttonName=""
-              fontSize="30"
-              color="white"
-              targetPage="#"
-            />
-            <Button
-              className="right"
-              iconTag={<BsChevronRight />}
-              buttonName=""
-              fontSize="30"
-              color="white"
-              targetPage="#"
-            />
-          </div>
-
-          <div className="banner">
-            <h2 className="featured-author font">{randomBook.author}</h2>
-            <div className="featured-desc font">
-              <p>{randomBook.description}</p>
-              {/* <div className="button-want-to-read">
+            <div>
+              <h2 className="featured-author font">{randomBook.author}</h2>
+              <p className="featured-desc font">{randomBook.description}</p>
+              <div className="button-want-to-read">
                 <Button
                   buttonName="Want To Read"
                   size="20"
                   color="white"
-                  targetPage="/"
+                  targetPage={`/book/${randomBook.bookId}`}
                 />
-              </div>*/}
+              </div>
             </div>
           </div>
         </>

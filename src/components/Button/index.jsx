@@ -11,9 +11,10 @@ const Button = ({
   handleButton,
 }) => {
   return (
-    <div className="button">
-      <Link href={targetPage} legacyBehavior>
+    <>
+      <Link href={targetPage} legacyBehavior className="Link">
         <a
+          className="button"
           style={{ color, fontSize: fontSize, width: width }}
           onClick={handleButton}
         >
@@ -21,7 +22,7 @@ const Button = ({
           {buttonName && <span>{buttonName}</span>}
         </a>
       </Link>
-    </div>
+    </>
   );
 };
 

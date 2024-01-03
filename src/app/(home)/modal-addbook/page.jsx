@@ -19,6 +19,20 @@ const Modal = ({ closeModal, userId, API_URL }) => {
 
   const handleSearchTitle = async (e) => {
     e.preventDefault();
+
+    if (title.length === 0) {
+      alert("its empty you fuck");
+      return;
+    }
+
+    const words = title.split(" ");
+    words
+      .map((word) => {
+        return word[0].toUpperCase() + word.substring(1);
+      })
+      .join(" ");
+
+    setTitle(words);
     setShowSearchTitleModal(false);
     try {
       const bookTitleResponse = await axios.get(

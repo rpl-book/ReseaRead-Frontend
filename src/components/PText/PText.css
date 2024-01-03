@@ -1,88 +1,89 @@
 .p-title {
-    font-size: 18px;
-    font-style: normal;
-    line-height: 140%;
-    font-weight: bold;
-    margin-bottom: 0;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 140%;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .p-title:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /*------------*/
 
 .p-author {
-    font-size: 18px;
-    font-style: normal;
-    line-height: 140%;
-    margin-bottom: 0;
-    color: #DA5E42;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 140%;
+  margin-bottom: 0;
+  color: #da5e42;
 }
 
 .p-author:hover {
-    text-decoration: underline;
-    color: #DA5E42;
+  text-decoration: underline;
+  color: #da5e42;
+  cursor: pointer;
 }
 
 /*------------*/
-.p-page{
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    color: black;
+.p-page {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  color: black;
 }
 
-.p-tag{
-    font-size: 16px;
-    font-style: normal;
-    line-height: 30px;
-    color: rgb(181, 181, 181);
-    
+.p-tag {
+  font-size: 16px;
+  font-style: normal;
+  line-height: 30px;
+  color: rgb(181, 181, 181);
 }
 
-.p-tag a{
-    margin-right: 4px;
+.p-tag a {
+  margin-right: 4px;
 }
 
-.p-tag a:hover{
-    text-decoration: underline;
+.p-tag a:hover {
+  text-decoration: underline;
 }
 
 /*------------*/
 
-.p-desc{
-    font-size: 18px;
-    font-style: normal;
-    line-height: 30px;
-    color: black;
+.p-desc {
+  font-size: 18px;
+  font-style: normal;
+  line-height: 30px;
+  color: black;
 }
 
 /*-------TOP PICKS-----*/
 
 .ps-title {
-    font-size: 16px;
-    font-style: normal;
-    line-height: 140%;
-    font-weight: bold;
-    margin-bottom: 0;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 140%;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .ps-title:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 .ps-author {
-    font-size: 16px;
-    font-style: normal;
-    line-height: 140%;
-    margin-bottom: 0;
-    color: #DA5E42;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 140%;
+  margin-bottom: 0;
+  color: #da5e42;
 }
 
 .ps-author:hover {
-    text-decoration: underline;
-    color: #DA5E42;
+  text-decoration: underline;
+  color: #da5e42;
+  cursor: pointer;
 }

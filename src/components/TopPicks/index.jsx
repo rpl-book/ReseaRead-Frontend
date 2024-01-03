@@ -44,6 +44,7 @@ const TopPicks = ({ API_URL }) => {
               bookId={book.bookId}
               authorProfile={book.author}
               genres={book.genre.split(",").map((genre) => genre.trim())}
+              bookRating={book.rating}
             />
           ))
         ) : (

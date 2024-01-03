@@ -36,31 +36,21 @@ const NewTableRow = ({
 
   return (
     <tr className="hover:bg-gray-100 dark:hover:bg-gray-200">
-      <td className="px-4 py-4">
-        <img
-          src={cover}
-          alt="Book Cover"
-          className="w-20 h-20 object-cover rounded"
-        />
+      <td className="items-center">
+        <div className="flex justify-center items-center">
+          <img src={cover} alt="Book Cover" className="h-40 py-2" />
+        </div>
       </td>
 
-      <td className="px-6 py-4 text-center text-m text-black-800">
-        {bookTitle}
-      </td>
-      <td className="px-6 py-4 text-center text-m text-black-800">
-        {bookAuthor}
-      </td>
-      <td className="px-6 py-4 text-center text-m text-black-800">
-        {dateAdded}
-      </td>
-      <td className="px-6 py-4 text-center text-m text-black-800">
-        {readingStatus}
-      </td>
-      <td className="px-6 py-4 text-center text-black-800">
+      <td className=" text-center text-m text-black-800">{bookTitle}</td>
+      <td className=" text-center text-m text-black-800">{bookAuthor}</td>
+      <td className="text-center text-m text-black-800">{dateAdded}</td>
+      <td className="text-center text-m text-black-800">{readingStatus}</td>
+      <td className="text-center text-black-800">
         {currentPage}/{totalPage}
       </td>
 
-      <td className="px-5 py-3 text-center text-m font-medium">
+      <td className="text-center text-m font-medium">
         <div className="configure">
           <button
             type="button"

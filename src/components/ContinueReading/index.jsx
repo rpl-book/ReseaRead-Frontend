@@ -28,6 +28,7 @@ const ContinueReading = ({ userId, API_URL }) => {
 
   return (
     <>
+    {userReads.length !== 0 ? (
       <div className="mt-10  mb-10">
         <SubsectionText title="Continue Reading" />
 
@@ -49,19 +50,19 @@ const ContinueReading = ({ userId, API_URL }) => {
             <ModalLoading />
           )}
         </div>
-        {userReads.length !== 0 ? (
-          <div className="flex justify-center items-center mt-20 mb-20">
-            <Button
-              buttonName="See More"
-              size="20"
-              color="white"
-              targetPage="/library"
-            />
-          </div>
-        ) : (
-          <></>
-        )}
+        <div className="flex justify-center items-center mt-20 mb-20">
+          <Button
+            buttonName="See More"
+            size="20"
+            color="white"
+            targetPage="/library"
+          />
+        </div>
       </div>
+    ): (
+      <></>
+    )}
+      
     </>
   );
 };

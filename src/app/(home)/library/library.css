@@ -1,24 +1,24 @@
-.header-lib{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 46px;
-    padding-left: 260px;
+.header-lib {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 46px;
+  padding-left: 260px;
 }
 
 .library-tools {
-    display: flex;
-    gap: 20px; /* Jarak antara ikon */
-    justify-content: flex-end; /* Konten menjadi rata kanan */
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
 }
 
-.library-tools button{
+.library-tools button {
   font-size: 30px;
 }
 
-.library-tools button:hover, .library-tools button:focus, .library-tools button:active{
+.library-tools button:hover,
+.library-tools button:focus,
+.library-tools button:active {
   text-decoration: none;
-  color: #DA5E42;
+  color: #da5e42;
 }
-
-

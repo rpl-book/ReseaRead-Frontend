@@ -5,7 +5,7 @@ import Button from "../Button";
 import axios from "axios";
 
 const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
-  const [title, setTitle] = useState(addedTitle || "");
+  const [title, setTitle] = useState(addedTitle);
   const [author, setAuthor] = useState("");
   const [coverBook, setCoverBook] = useState("/img-placeholder.png");
   const [currentPage, setCurrentPage] = useState("");
@@ -69,9 +69,12 @@ const ModalAddNewBookForm = ({ closeModal, userId, API_URL, addedTitle }) => {
         window.location.reload();
       }
     } catch (err) {
+      console.lo;
       console.error("Error when add new book", err.message);
     }
   };
+
+  console.log(title);
 
   return (
     <div className="ml-8">

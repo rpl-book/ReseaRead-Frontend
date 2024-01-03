@@ -4,18 +4,19 @@
   margin-top: 75px;
   flex-shrink: 0;
   background: #7e9797;
+  padding: 40px 0;
+  box-sizing: border-box;
 }
 
 .footer-img {
-  padding-top: 40px;
-  width: 198px;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 198px;
+  margin-bottom: 20px;
 }
 
 .footer-social img {
-  padding-top: 20px;
   width: 40px;
-  flex-shrink: 0;
+  margin-right: 10px;
 }
 
 .footer-subsection-text {
@@ -63,4 +64,15 @@
 
 .footer-desc-2 {
   margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .pl-9,
+  .pl-20 {
+    padding-left: 0;
+  }
 }

@@ -1,32 +1,38 @@
-.button{
-    background-color: #DA5E42;
-    width: fit-content;
-    padding: 13px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
+.button {
+  background-color: #da5e42;
+  width: fit-content;
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .button {
-    text-align: center;
-}  
-
-.button:hover, .button:focus, .button:active{
-    text-decoration: none;
-    background-color: #B34E37;
-    color: #fff;
+  text-align: center;
 }
 
-a.active{
-    font-weight: bold;
+.button:hover,
+.button:focus,
+.button:active {
+  text-decoration: none;
+  background-color: #b34e37;
+  color: #fff;
 }
 
-a.active:hover{
-    font-weight: normal;
+a.active {
+  font-weight: bold;
+}
+
+a.active:hover {
+  font-weight: normal;
+}
+
+.button .Link a {
+  display: block;
 }

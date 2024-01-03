@@ -76,8 +76,8 @@ const PTag = ({ tags }) => {
   return (
     <div>
       <p className="p-tag">
-        {tags.map((tag, index) => (
-          <a key={index} href={tag.route}>
+        {tags.map((tag) => (
+          <a href={tag.route} key={tag.name}>
             {tag.name}
           </a>
         ))}

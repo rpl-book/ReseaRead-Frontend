@@ -1,83 +1,81 @@
 ul li {
-    position: relative; /* Tambahkan ini pada semua elemen <li> */
+  position: relative; /* Tambahkan ini pada semua elemen <li> */
 }
 
 nav {
-    padding-top: 59px;
-    background-color: #F7F6F4;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 2.2em;
+  background-color: #f7f6f4;
+  display: flex;
+  justify-content: space-between;
 }
 
-nav ul{
-    list-style: none;
-    gap: 4rem;
+nav ul {
+  list-style: none;
+  gap: 4rem;
 }
 
 nav ul li {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
-nav ul li a{
-    display: block;
-    padding: 10px ;
-    width: 135px;
-    color: #DA5E42;
-    text-decoration: none;
-    text-align: center;
-    font-size: 16px;
+nav ul li a {
+  display: block;
+  padding: 10px;
+  width: 135px;
+  color: #da5e42;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
 }
 
-
-nav ul li a:hover{
-    background: #DA5E42;
-    color: #fff;
-    border-radius: 3px;
-    text-decoration: none;
+nav ul li a:hover {
+  background: #da5e42;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
 }
 
 nav ul li.active a {
-    background-color: #DA5E42; 
-    color: #fff;
+  background-color: #da5e42;
+  color: #fff;
 }
 
-.search-bar{
-    width: 250px;
-    height: 40px;
-    background: #fff;
-    display: flex;
-    border-radius: 50px;
-    padding: 14px 24px;
-    align-items: flex;
-    gap: 10px;
-    margin-left: 30px;
-    align-items: center;
+.search-bar {
+  width: 250px;
+  height: 40px;
+  background: #fff;
+  display: flex;
+  border-radius: 50px;
+  padding: 14px 24px;
+  align-items: flex;
+  gap: 10px;
+  margin-left: 30px;
+  align-items: center;
 }
 
-.search-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    font-size: 14px;
-    color: #767494;
+.search-bar input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  color: #767494;
 }
 
-.search-bar button{
-    border: 0;
-    background-color: transparent;
-    border-radius: 50px;
-    cursor: pointer;
-
+.search-bar button {
+  border: 0;
+  background-color: transparent;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
- .search-bar button img {
-    position: relative;
-    width: 20px;
-    border-style: none;
+.search-bar button img {
+  position: relative;
+  width: 20px;
+  border-style: none;
 }
 
 .search-bar button:focus {
-    outline: none;
+  outline: none;
 }
